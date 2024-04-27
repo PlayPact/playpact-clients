@@ -1,0 +1,2145 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: contact@playpact.com
+    name: PlayPact
+    url: https://playpact.com
+  description: The API for PlayPact.
+  license:
+    name: PlayPact License
+    url: https://playpact.com/license
+  termsOfService: https://playpact.com/terms
+  title: PlayPact API
+  version: v1
+servers:
+- url: /
+security:
+- Bearer: []
+paths:
+  /api/Dashboard/user/count:
+    get:
+      operationId: GetUserCount
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                format: int32
+                type: integer
+            application/json:
+              schema:
+                format: int32
+                type: integer
+            text/json:
+              schema:
+                format: int32
+                type: integer
+          description: Success
+      summary: Gets the number of users.
+      tags:
+      - Dashboard
+  /api/Dashboard/report/active/count:
+    get:
+      operationId: GetActiveReports
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                format: int32
+                type: integer
+            application/json:
+              schema:
+                format: int32
+                type: integer
+            text/json:
+              schema:
+                format: int32
+                type: integer
+          description: Success
+      summary: Gets the number of active reports.
+      tags:
+      - Dashboard
+  /api/Dashboard/report/completed/count:
+    get:
+      operationId: GetCompletedReports
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                format: int32
+                type: integer
+            application/json:
+              schema:
+                format: int32
+                type: integer
+            text/json:
+              schema:
+                format: int32
+                type: integer
+          description: Success
+      summary: Gets the number of completed reports.
+      tags:
+      - Dashboard
+  /api/Dashboard/server/count:
+    get:
+      operationId: GetRegisteredServers
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                format: int32
+                type: integer
+            application/json:
+              schema:
+                format: int32
+                type: integer
+            text/json:
+              schema:
+                format: int32
+                type: integer
+          description: Success
+      summary: Gets the number of registered servers.
+      tags:
+      - Dashboard
+  /api/Objection/{playPactReportId}:
+    get:
+      operationId: GetObjection
+      parameters:
+      - description: Play pact id of the report to get the objection for.
+        explode: false
+        in: path
+        name: playPactReportId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: Play pact id of the requesting user.
+        explode: true
+        in: query
+        name: playPactUserId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ObjectionDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectionDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ObjectionDto'
+          description: Success
+      summary: Gets the objection for a report.
+      tags:
+      - Objection
+  /api/Objection:
+    get:
+      operationId: GetMyObjection
+      parameters:
+      - description: Play pact id of the report to get the objection for.
+        explode: true
+        in: query
+        name: playPactReportId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - description: Play pact id of the requesting user.
+        explode: true
+        in: query
+        name: playPactUserId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ObjectionDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectionDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ObjectionDto'
+          description: Success
+      summary: "Gets the objection for a report with more details.\r\nOnly works for\
+        \ the user who created the report."
+      tags:
+      - Objection
+    post:
+      operationId: CreateMyObjection
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateObjectionDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateObjectionDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateObjectionDto'
+      responses:
+        "200":
+          description: Success
+      summary: Creates a objection.
+      tags:
+      - Objection
+    put:
+      operationId: UpdateMyObjection
+      parameters:
+      - explode: true
+        in: query
+        name: playPactObjectionId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObjectionDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ObjectionDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ObjectionDto'
+      responses:
+        "200":
+          description: Success
+      summary: "TODO: Updates a objection."
+      tags:
+      - Objection
+  /api/PactPoint:
+    get:
+      operationId: GetPactPointTransactions
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PactPointReportTransactionDto'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PactPointReportTransactionDto'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PactPointReportTransactionDto'
+                type: array
+          description: Success
+      summary: "TODO: Gets all pact point transactions."
+      tags:
+      - PactPoint
+  /api/PactPoint/{playPactTransactionId}:
+    get:
+      operationId: GetPactPointTransaction
+      parameters:
+      - explode: false
+        in: path
+        name: playPactTransactionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/PactPointReportTransactionDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PactPointReportTransactionDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/PactPointReportTransactionDto'
+          description: Success
+      summary: "TODO: Gets a pact point transaction."
+      tags:
+      - PactPoint
+  /api/Report:
+    delete:
+      operationId: DeleteReport
+      parameters:
+      - explode: true
+        in: query
+        name: playpactReportId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "200":
+          description: Success
+      summary: Deletes a report.
+      tags:
+      - Report
+    post:
+      operationId: CreateMyReport
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMyReportDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateMyReportDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateMyReportDto'
+      responses:
+        "200":
+          description: Success
+      summary: Creates a report.
+      tags:
+      - Report
+    put:
+      operationId: UpdateMyReport
+      parameters:
+      - explode: true
+        in: query
+        name: playPactUserId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MyReportDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/MyReportDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/MyReportDto'
+      responses:
+        "200":
+          description: Success
+      summary: Updates a report.
+      tags:
+      - Report
+  /api/Report/review/list/{playPactReviewerId}:
+    get:
+      operationId: GetReviewReports
+      parameters:
+      - explode: false
+        in: path
+        name: playPactReviewerId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ReportListDto'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ReportListDto'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ReportListDto'
+                type: array
+          description: Success
+      summary: Gets all reports.
+      tags:
+      - Report
+  /api/Report/my/list/{playPactUserId}:
+    get:
+      operationId: GetMyReports
+      parameters:
+      - explode: false
+        in: path
+        name: playPactUserId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/MyReportListDto'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/MyReportListDto'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/MyReportListDto'
+                type: array
+          description: Success
+      summary: Gets all reports.
+      tags:
+      - Report
+  /api/Report/verdict/list/{playPactUserId}:
+    get:
+      operationId: GetVerdicts
+      parameters:
+      - explode: false
+        in: path
+        name: playPactUserId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/VerdictListDto'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/VerdictListDto'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/VerdictListDto'
+                type: array
+          description: Success
+      summary: Gets all reports.
+      tags:
+      - Report
+  /api/Report/review/{playPactReportId}:
+    get:
+      operationId: GetReport
+      parameters:
+      - explode: false
+        in: path
+        name: playPactReportId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ReportDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ReportDto'
+          description: Success
+      summary: Gets a report.
+      tags:
+      - Report
+  /api/Report/my/{playPactReportId}:
+    get:
+      operationId: GetMyReport
+      parameters:
+      - explode: false
+        in: path
+        name: playPactReportId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/MyReportDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MyReportDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/MyReportDto'
+          description: Success
+      summary: Gets your report.
+      tags:
+      - Report
+  /api/Report/verdict/{playPactReportId}:
+    get:
+      operationId: GetVerdict
+      parameters:
+      - explode: false
+        in: path
+        name: playPactReportId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/VerdictDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerdictDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/VerdictDto'
+          description: Success
+      summary: Gets a verdict.
+      tags:
+      - Report
+  /api/Review:
+    delete:
+      operationId: DeleteMyReview
+      parameters:
+      - explode: true
+        in: query
+        name: playPactUserId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: playPactReview
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "200":
+          description: Success
+      summary: Deletes a report.
+      tags:
+      - Review
+    post:
+      operationId: CreateReview
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateReviewDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateReviewDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateReviewDto'
+      responses:
+        "200":
+          description: Success
+      summary: "TODO: Creates a report."
+      tags:
+      - Review
+    put:
+      operationId: UpdateMyReview
+      parameters:
+      - explode: true
+        in: query
+        name: playPactUserId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReviewDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ReviewDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ReviewDto'
+      responses:
+        "200":
+          description: Success
+      summary: Updates a report.
+      tags:
+      - Review
+  /api/Review/{playPactReportId}:
+    get:
+      operationId: GetReviews
+      parameters:
+      - explode: false
+        in: path
+        name: playPactReportId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ReviewDto'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ReviewDto'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ReviewDto'
+                type: array
+          description: Success
+      summary: "Gets all reviews, including the user's review that will hold more\
+        \ information."
+      tags:
+      - Review
+  /api/Review/my/{playPactReportId}:
+    get:
+      operationId: GetMyReview
+      parameters:
+      - explode: false
+        in: path
+        name: playPactReportId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ReviewDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ReviewDto'
+          description: Success
+      summary: "Gets all reviews, including the user's review that will hold more\
+        \ information."
+      tags:
+      - Review
+  /api/Rule:
+    get:
+      operationId: GetRules
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/RuleListDto'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/RuleListDto'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/RuleListDto'
+                type: array
+          description: Success
+      summary: Gets all rules.
+      tags:
+      - Rule
+    post:
+      operationId: CreateRule
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateRuleDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateRuleDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateRuleDto'
+      responses:
+        "200":
+          description: Success
+      summary: Creates a rule.
+      tags:
+      - Rule
+    put:
+      operationId: UpdateRule
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RuleDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RuleDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/RuleDto'
+      responses:
+        "200":
+          description: Success
+      summary: Updates a rule.
+      tags:
+      - Rule
+  /api/Rule/{playPactRuleId}:
+    get:
+      operationId: GetRule
+      parameters:
+      - explode: false
+        in: path
+        name: playPactRuleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RuleDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RuleDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RuleDto'
+          description: Success
+      summary: Gets a rule.
+      tags:
+      - Rule
+  /api/Server/{playPactUserId}:
+    post:
+      operationId: CreateServer
+      parameters:
+      - explode: false
+        in: path
+        name: playPactUserId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMyServerDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateMyServerDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateMyServerDto'
+      responses:
+        "200":
+          description: Success
+      summary: Creates a server.
+      tags:
+      - Server
+  /api/Server/list:
+    get:
+      operationId: GetServers
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ServerListDto'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ServerListDto'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ServerListDto'
+                type: array
+          description: Success
+      summary: Gets all servers.
+      tags:
+      - Server
+  /api/Server/my/list/{playPactUserId}:
+    get:
+      operationId: GetMyServers
+      parameters:
+      - explode: false
+        in: path
+        name: playPactUserId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/MyServerListDto'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/MyServerListDto'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/MyServerListDto'
+                type: array
+          description: Success
+      summary: Gets all servers created by an user.
+      tags:
+      - Server
+  /api/Server/{playPactServerId}:
+    get:
+      operationId: GetServer
+      parameters:
+      - explode: false
+        in: path
+        name: playPactServerId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ServerDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ServerDto'
+          description: Success
+      summary: Gets a server.
+      tags:
+      - Server
+    put:
+      operationId: UpdateMyServer
+      parameters:
+      - explode: false
+        in: path
+        name: playPactServerId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MyServerDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/MyServerDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/MyServerDto'
+      responses:
+        "200":
+          description: Success
+      summary: Updates a server.
+      tags:
+      - Server
+  /api/Server/my/{playPactServerId}:
+    get:
+      operationId: GetMyServer
+      parameters:
+      - explode: false
+        in: path
+        name: playPactServerId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/MyServerDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MyServerDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/MyServerDto'
+          description: Success
+      summary: Gets a server.
+      tags:
+      - Server
+  /api/Server/{playPactUserId}/{playPactServerId}:
+    delete:
+      operationId: DeleteServer
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: playPactUserId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: playPactServerId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      summary: Deletes a server.
+      tags:
+      - Server
+  /api/Server/metadata:
+    patch:
+      operationId: UpdateMetaData
+      responses:
+        "200":
+          description: Success
+      summary: "TODO: Updates the metadata of a server."
+      tags:
+      - Server
+  /api/Test:
+    get:
+      operationId: TestGettingPactPoints
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Test
+    post:
+      operationId: TestAddingPactPoints
+      parameters:
+      - explode: true
+        in: query
+        name: newAmount
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: reason
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Test
+  /api/Test/history:
+    get:
+      operationId: TestGettingPactPointsHistory
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Test
+  /api/User/identifiers/{playPactUserId}:
+    get:
+      operationId: GetPlatformIdentifiers
+      parameters:
+      - description: The users PlayPlact identifier.
+        explode: false
+        in: path
+        name: playPactUserId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/PlatformIdentifierDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlatformIdentifierDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/PlatformIdentifierDto'
+          description: Success
+      summary: Gets the platform identifiers for a player.
+      tags:
+      - User
+    post:
+      operationId: Updates a users platform identifiers
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: playPactUserId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlatformIdentifierDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/PlatformIdentifierDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/PlatformIdentifierDto'
+        description: The platform identifier information.
+      responses:
+        "200":
+          description: Success
+      summary: Updates the platform identifiers for a player.
+      tags:
+      - User
+  /api/User:
+    get:
+      operationId: GetUsers
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/UserListDto'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/UserListDto'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/UserListDto'
+                type: array
+          description: Success
+      summary: Gets all users.
+      tags:
+      - User
+    post:
+      operationId: RegisterPlayPactUser
+      parameters:
+      - explode: true
+        in: query
+        name: username
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: supabaseUUID
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: Success
+      summary: Registers a user to play pact.
+      tags:
+      - User
+  /api/User/{playPactUserId}:
+    get:
+      operationId: GetUser
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: playPactUserId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/UserDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/UserDto'
+          description: Success
+      summary: Gets a user by their PlayPact identifier.
+      tags:
+      - User
+  /api/User/server/{playPactServerId}:
+    get:
+      operationId: GetUsersOnServer
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: playPactServerId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/UserListDto'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/UserListDto'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/UserListDto'
+                type: array
+          description: Success
+      summary: Gets all users on a server.
+      tags:
+      - User
+  /api/User/pactPoints/{playPactUserId}:
+    get:
+      operationId: GetPactPoints
+      parameters:
+      - explode: false
+        in: path
+        name: playPactUserId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                format: int32
+                type: integer
+            application/json:
+              schema:
+                format: int32
+                type: integer
+            text/json:
+              schema:
+                format: int32
+                type: integer
+          description: Success
+      summary: Gets a users pact points.
+      tags:
+      - User
+  /api/User/pactpoints/{playPactUserId}/history:
+    get:
+      operationId: GetPactPointHistory
+      parameters:
+      - explode: false
+        in: path
+        name: playPactUserId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: fromDate
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: toDate
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PactPointHistoryDto'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PactPointHistoryDto'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PactPointHistoryDto'
+                type: array
+          description: Success
+      summary: Gets a users pact point history.
+      tags:
+      - User
+  /api/User/challenge:
+    post:
+      operationId: UserChallengesServerLogin
+      parameters:
+      - explode: true
+        in: query
+        name: platform
+        required: false
+        schema:
+          $ref: '#/components/schemas/PlatformIdentifierEnumDto'
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ServerChallengeDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ServerChallengeDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ServerChallengeDto'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: boolean
+            application/json:
+              schema:
+                type: boolean
+            text/json:
+              schema:
+                type: boolean
+          description: Success
+      summary: Returns if the given player can join the server.
+      tags:
+      - User
+  /api/User/joined:
+    post:
+      operationId: UserJoinedServer
+      responses:
+        "200":
+          description: Success
+      summary: "TODO: Tells PlayPact that a user has joined on a server."
+      tags:
+      - User
+  /api/User/disconnected:
+    post:
+      operationId: UserLeftServer
+      responses:
+        "200":
+          description: Success
+      summary: "TODO: Tells PlayPact that a user has left a server."
+      tags:
+      - User
+  /api/User/kicked:
+    post:
+      operationId: UserKickedFromServer
+      responses:
+        "200":
+          description: Success
+      summary: "TODO: Tells PlayPact that a user has been kicked from a server."
+      tags:
+      - User
+  /api/User/banned:
+    post:
+      operationId: UserBannedFromServer
+      responses:
+        "200":
+          description: Success
+      summary: "TODO: Tells PlayPact that a user has been banned from a server."
+      tags:
+      - User
+components:
+  schemas:
+    CreateEvidenceDto:
+      additionalProperties: false
+      example:
+        blobStorageUri: blobStorageUri
+        playPactUploaderId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        description: description
+        playPactAttachedToId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        fileType: null
+      properties:
+        playPactUploaderId:
+          format: uuid
+          type: string
+        playPactAttachedToId:
+          format: uuid
+          type: string
+        description:
+          nullable: true
+          type: string
+        fileType:
+          $ref: '#/components/schemas/FileType'
+        blobStorageUri:
+          nullable: true
+          type: string
+      type: object
+    CreateMyReportDto:
+      additionalProperties: false
+      example:
+        accusation: accusation
+        evidence:
+        - blobStorageUri: blobStorageUri
+          playPactUploaderId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
+          playPactAttachedToId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          fileType: null
+        - blobStorageUri: blobStorageUri
+          playPactUploaderId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
+          playPactAttachedToId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          fileType: null
+        playPactSubjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        rules:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        playPactCreatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        playPactServerId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        accusation:
+          nullable: true
+          type: string
+        playPactCreatorId:
+          format: uuid
+          type: string
+        playPactSubjectId:
+          format: uuid
+          type: string
+        rules:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+        playPactServerId:
+          format: uuid
+          type: string
+        evidence:
+          items:
+            $ref: '#/components/schemas/CreateEvidenceDto'
+          nullable: true
+          type: array
+      type: object
+    CreateMyServerDto:
+      additionalProperties: false
+      example:
+        port: port
+        name: name
+        ipAddress: ipAddress
+        description: description
+        logoUri: logoUri
+      properties:
+        name:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        ipAddress:
+          nullable: true
+          type: string
+        port:
+          nullable: true
+          type: string
+        logoUri:
+          nullable: true
+          type: string
+      type: object
+    CreateObjectionDto:
+      additionalProperties: false
+      example:
+        playPactObjectionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        playPactReportId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        playPactSubjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        objection: objection
+      properties:
+        playPactObjectionId:
+          format: uuid
+          type: string
+        objection:
+          nullable: true
+          type: string
+        playPactSubjectId:
+          format: uuid
+          type: string
+        playPactReportId:
+          format: uuid
+          type: string
+      type: object
+    CreateReviewDto:
+      additionalProperties: false
+      example:
+        evaluation: null
+        playPactReportId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        reason: reason
+        rules:
+        - description: description
+          playPactRuleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - description: description
+          playPactRuleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        playPactCreatorId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        playPactCreatorId:
+          format: uuid
+          type: string
+        playPactReportId:
+          format: uuid
+          type: string
+        reason:
+          nullable: true
+          type: string
+        rules:
+          items:
+            $ref: '#/components/schemas/RuleListDto'
+          nullable: true
+          type: array
+        evaluation:
+          $ref: '#/components/schemas/ReviewEvaluation'
+      type: object
+    CreateRuleDto:
+      additionalProperties: false
+      example:
+        penalty: 0
+        description: description
+      properties:
+        description:
+          nullable: true
+          type: string
+        penalty:
+          format: int32
+          type: integer
+      type: object
+    EvidenceDto:
+      additionalProperties: false
+      example:
+        blobStorageUri: blobStorageUri
+        uploader:
+          playPactUserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          username: username
+        description: description
+        playPactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        fileType: null
+      properties:
+        playPactId:
+          format: uuid
+          type: string
+        uploader:
+          $ref: '#/components/schemas/UserListDto'
+        description:
+          nullable: true
+          type: string
+        fileType:
+          $ref: '#/components/schemas/FileType'
+        blobStorageUri:
+          nullable: true
+          type: string
+      type: object
+    FileType:
+      enum:
+      - JSON
+      - WAV
+      - MP4
+      - MP3
+      - MD
+      - CSV
+      - XML
+      - PNG
+      - JPG
+      - PDF
+      type: string
+    MyReportDto:
+      additionalProperties: false
+      example:
+        playPactReportId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        server:
+          port: port
+          name: name
+          ipAddress: ipAddress
+          description: description
+          tag: tag
+          logoUri: logoUri
+          playPactServerId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        creator:
+          playPactUserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          username: username
+        accusation: accusation
+        evidence:
+        - blobStorageUri: blobStorageUri
+          uploader:
+            playPactUserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            username: username
+          description: description
+          playPactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          fileType: null
+        - blobStorageUri: blobStorageUri
+          uploader:
+            playPactUserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            username: username
+          description: description
+          playPactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          fileType: null
+        subject:
+          playPactUserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          username: username
+        reportStatus: null
+        rules:
+        - description: description
+          playPactRuleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - description: description
+          playPactRuleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        playPactReportId:
+          format: uuid
+          type: string
+        accusation:
+          nullable: true
+          type: string
+        creator:
+          $ref: '#/components/schemas/UserListDto'
+        subject:
+          $ref: '#/components/schemas/UserListDto'
+        server:
+          $ref: '#/components/schemas/MyServerListDto'
+        reportStatus:
+          $ref: '#/components/schemas/ReportStatus'
+        evidence:
+          items:
+            $ref: '#/components/schemas/EvidenceDto'
+          nullable: true
+          type: array
+        rules:
+          items:
+            $ref: '#/components/schemas/RuleListDto'
+          nullable: true
+          type: array
+      type: object
+    MyReportListDto:
+      additionalProperties: false
+      example:
+        playPactReportId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        accusation: accusation
+        serverName: serverName
+        reportStatus: null
+        subjectName: subjectName
+      properties:
+        playPactReportId:
+          format: uuid
+          type: string
+        accusation:
+          nullable: true
+          type: string
+        serverName:
+          nullable: true
+          type: string
+        subjectName:
+          nullable: true
+          type: string
+        reportStatus:
+          $ref: '#/components/schemas/ReportStatus'
+      type: object
+    MyServerDto:
+      additionalProperties: false
+      example:
+        owner:
+          playPactUserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          username: username
+        port: port
+        enforcedRules:
+        - description: description
+          playPactRuleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - description: description
+          playPactRuleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        name: name
+        ipAddress: ipAddress
+        description: description
+        logoUri: logoUri
+        tag: tag
+        playPactServerId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        playPactServerId:
+          format: uuid
+          type: string
+        name:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        ipAddress:
+          nullable: true
+          type: string
+        port:
+          nullable: true
+          type: string
+        logoUri:
+          nullable: true
+          type: string
+        tag:
+          nullable: true
+          type: string
+        owner:
+          $ref: '#/components/schemas/UserListDto'
+        enforcedRules:
+          items:
+            $ref: '#/components/schemas/RuleListDto'
+          nullable: true
+          type: array
+      type: object
+    MyServerListDto:
+      additionalProperties: false
+      example:
+        port: port
+        name: name
+        ipAddress: ipAddress
+        description: description
+        tag: tag
+        logoUri: logoUri
+        playPactServerId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        playPactServerId:
+          format: uuid
+          type: string
+        name:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        ipAddress:
+          nullable: true
+          type: string
+        port:
+          nullable: true
+          type: string
+        tag:
+          nullable: true
+          type: string
+        logoUri:
+          nullable: true
+          type: string
+      type: object
+    ObjectionDto:
+      additionalProperties: false
+      example:
+        playPactObjectionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        creator:
+          playPactUserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          username: username
+        evidence:
+        - blobStorageUri: blobStorageUri
+          uploader:
+            playPactUserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            username: username
+          description: description
+          playPactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          fileType: null
+        - blobStorageUri: blobStorageUri
+          uploader:
+            playPactUserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            username: username
+          description: description
+          playPactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          fileType: null
+        statement: statement
+      properties:
+        playPactObjectionId:
+          format: uuid
+          type: string
+        statement:
+          nullable: true
+          type: string
+        evidence:
+          items:
+            $ref: '#/components/schemas/EvidenceDto'
+          nullable: true
+          type: array
+        creator:
+          $ref: '#/components/schemas/UserListDto'
+      type: object
+    PactPointHistoryDto:
+      additionalProperties: false
+      example:
+        date: 2000-01-23T04:56:07.000+00:00
+        reason: reason
+        pactPoints: 0
+      properties:
+        pactPoints:
+          format: int32
+          type: integer
+        date:
+          format: date-time
+          type: string
+        reason:
+          nullable: true
+          type: string
+      type: object
+    PactPointReportTransactionDto:
+      additionalProperties: false
+      example:
+        reason: reason
+        amount: 0
+        created: 2000-01-23T04:56:07.000+00:00
+        playPactServerId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        playPactServerId:
+          format: uuid
+          type: string
+        amount:
+          format: int32
+          type: integer
+        created:
+          format: date-time
+          type: string
+        reason:
+          nullable: true
+          type: string
+      type: object
+    PlatformIdentifierDto:
+      additionalProperties: false
+      example:
+        steamId: steamId
+        epicGamesId: epicGamesId
+        minecraftId: minecraftId
+        rockstarId: rockstarId
+      properties:
+        steamId:
+          nullable: true
+          type: string
+        minecraftId:
+          nullable: true
+          type: string
+        rockstarId:
+          nullable: true
+          type: string
+        epicGamesId:
+          nullable: true
+          type: string
+      type: object
+    PlatformIdentifierEnumDto:
+      enum:
+      - Steam
+      - Minecraft
+      - Rockstar
+      - EpicGames
+      type: string
+    ReportDto:
+      additionalProperties: false
+      example:
+        playPactReportId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        server:
+          port: port
+          name: name
+          ipAddress: ipAddress
+          description: description
+          tag: tag
+          logoUri: logoUri
+          playPactServerId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        accusation: accusation
+        reportStatus: null
+        rules:
+        - description: description
+          playPactRuleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - description: description
+          playPactRuleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        playPactReportId:
+          format: uuid
+          type: string
+        accusation:
+          nullable: true
+          type: string
+        reportStatus:
+          $ref: '#/components/schemas/ReportStatus'
+        rules:
+          items:
+            $ref: '#/components/schemas/RuleListDto'
+          nullable: true
+          type: array
+        server:
+          $ref: '#/components/schemas/ServerListDto'
+      type: object
+    ReportListDto:
+      additionalProperties: false
+      example:
+        playPactReportId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        accusation: accusation
+        serverName: serverName
+      properties:
+        playPactReportId:
+          format: uuid
+          type: string
+        accusation:
+          nullable: true
+          type: string
+        serverName:
+          nullable: true
+          type: string
+      type: object
+    ReportStatus:
+      enum:
+      - Draft
+      - WaitingForObjection
+      - OpenForReview
+      - Confirmed
+      - Rejected
+      type: string
+    ReviewDto:
+      additionalProperties: false
+      example:
+        evaluation: null
+        reason: reason
+        creator:
+          playPactUserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          username: username
+        lastUpdatedAt: 2000-01-23T04:56:07.000+00:00
+        rules:
+        - description: description
+          playPactRuleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - description: description
+          playPactRuleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        creationDate: 2000-01-23T04:56:07.000+00:00
+        reviewedReport:
+          playPactReportId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          accusation: accusation
+          serverName: serverName
+        playPactReviewId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        playPactReviewId:
+          format: uuid
+          type: string
+        creator:
+          $ref: '#/components/schemas/UserListDto'
+        reviewedReport:
+          $ref: '#/components/schemas/ReportListDto'
+        creationDate:
+          format: date-time
+          type: string
+        lastUpdatedAt:
+          format: date-time
+          type: string
+        reason:
+          nullable: true
+          type: string
+        rules:
+          items:
+            $ref: '#/components/schemas/RuleListDto'
+          nullable: true
+          type: array
+        evaluation:
+          $ref: '#/components/schemas/ReviewEvaluation'
+      type: object
+    ReviewEvaluation:
+      enum:
+      - Confirmed
+      - Rejected
+      - Removed
+      - Error
+      type: string
+    RuleDto:
+      additionalProperties: false
+      example:
+        penalty: 0
+        description: description
+        playPactRuleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        playPactRuleId:
+          format: uuid
+          type: string
+        description:
+          nullable: true
+          type: string
+        penalty:
+          format: int32
+          type: integer
+      type: object
+    RuleListDto:
+      additionalProperties: false
+      example:
+        description: description
+        playPactRuleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        playPactRuleId:
+          format: uuid
+          type: string
+        description:
+          nullable: true
+          type: string
+      type: object
+    ServerChallengeDto:
+      additionalProperties: false
+      example:
+        serverIdentifier: serverIdentifier
+        playerPlatformIdentifier: playerPlatformIdentifier
+      properties:
+        playerPlatformIdentifier:
+          nullable: true
+          type: string
+        serverIdentifier:
+          nullable: true
+          type: string
+      type: object
+    ServerDto:
+      additionalProperties: false
+      example:
+        owner:
+          playPactUserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          username: username
+        port: port
+        enforcedRules:
+        - description: description
+          playPactRuleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - description: description
+          playPactRuleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        name: name
+        ipAddress: ipAddress
+        description: description
+        logoUri: logoUri
+        tag: tag
+        playPactServerId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        playPactServerId:
+          format: uuid
+          type: string
+        name:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        ipAddress:
+          nullable: true
+          type: string
+        port:
+          nullable: true
+          type: string
+        logoUri:
+          nullable: true
+          type: string
+        tag:
+          nullable: true
+          type: string
+        owner:
+          $ref: '#/components/schemas/UserListDto'
+        enforcedRules:
+          items:
+            $ref: '#/components/schemas/RuleListDto'
+          nullable: true
+          type: array
+      type: object
+    ServerListDto:
+      additionalProperties: false
+      example:
+        port: port
+        name: name
+        ipAddress: ipAddress
+        description: description
+        tag: tag
+        logoUri: logoUri
+        playPactServerId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        playPactServerId:
+          format: uuid
+          type: string
+        name:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        ipAddress:
+          nullable: true
+          type: string
+        port:
+          nullable: true
+          type: string
+        tag:
+          nullable: true
+          type: string
+        logoUri:
+          nullable: true
+          type: string
+      type: object
+    UserDto:
+      additionalProperties: false
+      example:
+        playPactUserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        mail: mail
+        phone: phone
+        pactPoints: 0
+        username: username
+      properties:
+        playPactUserId:
+          format: uuid
+          type: string
+        username:
+          nullable: true
+          type: string
+        mail:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        pactPoints:
+          format: int32
+          type: integer
+      type: object
+    UserListDto:
+      additionalProperties: false
+      example:
+        playPactUserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        username: username
+      properties:
+        playPactUserId:
+          format: uuid
+          type: string
+        username:
+          nullable: true
+          type: string
+      type: object
+    VerdictDto:
+      additionalProperties: false
+      example:
+        playPactReportId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        accusation: accusation
+        reportStatus: null
+        rules:
+        - description: description
+          playPactRuleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - description: description
+          playPactRuleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        createdOnServer:
+          port: port
+          name: name
+          ipAddress: ipAddress
+          description: description
+          tag: tag
+          logoUri: logoUri
+          playPactServerId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        playPactReportId:
+          format: uuid
+          type: string
+        accusation:
+          nullable: true
+          type: string
+        createdOnServer:
+          $ref: '#/components/schemas/ServerListDto'
+        reportStatus:
+          $ref: '#/components/schemas/ReportStatus'
+        rules:
+          items:
+            $ref: '#/components/schemas/RuleListDto'
+          nullable: true
+          type: array
+      type: object
+    VerdictListDto:
+      additionalProperties: false
+      example:
+        playPactReportId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        accusation: accusation
+        serverName: serverName
+      properties:
+        playPactReportId:
+          format: uuid
+          type: string
+        accusation:
+          nullable: true
+          type: string
+        serverName:
+          nullable: true
+          type: string
+      type: object
+  securitySchemes:
+    Bearer:
+      description: "JWT Authorization header using the Bearer scheme. Example: \"\
+        Authorization: Bearer {token}\""
+      in: header
+      name: Authorization
+      type: apiKey
+
