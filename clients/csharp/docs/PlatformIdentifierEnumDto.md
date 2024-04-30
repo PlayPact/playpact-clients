@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.PlatformIdentifierEnumDto
+# PlayPact.OpenAPI.Model.PlatformIdentifierEnumDto
 
 ## Properties
 

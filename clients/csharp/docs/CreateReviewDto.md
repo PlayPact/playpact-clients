@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.CreateReviewDto
+# PlayPact.OpenAPI.Model.CreateReviewDto
 
 ## Properties
 

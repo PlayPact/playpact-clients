@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.PlatformIdentifierDto
+# PlayPact.OpenAPI.Model.PlatformIdentifierDto
 
 ## Properties
 

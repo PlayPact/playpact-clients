@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MyReportDto
+# PlayPact.OpenAPI.Model.MyReportDto
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.DashboardApi
+# PlayPact.OpenAPI.Api.DashboardApi
 
 All URIs are relative to *http://localhost*
 
@@ -19,9 +19,9 @@ Gets the number of active reports.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -108,9 +108,9 @@ Gets the number of completed reports.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -197,9 +197,9 @@ Gets the number of registered servers.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -286,9 +286,9 @@ Gets the number of users.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.PactPointApi
+# PlayPact.OpenAPI.Api.PactPointApi
 
 All URIs are relative to *http://localhost*
 
@@ -17,9 +17,9 @@ TODO: Gets a pact point transaction.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -111,9 +111,9 @@ TODO: Gets all pact point transactions.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {

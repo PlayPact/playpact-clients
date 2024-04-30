@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.PactPointReportTransactionDto
+# PlayPact.OpenAPI.Model.PactPointReportTransactionDto
 
 ## Properties
 

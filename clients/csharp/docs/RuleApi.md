@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.RuleApi
+# PlayPact.OpenAPI.Api.RuleApi
 
 All URIs are relative to *http://localhost*
 
@@ -11,7 +11,7 @@ All URIs are relative to *http://localhost*
 
 <a id="createrule"></a>
 # **CreateRule**
-> void CreateRule (CreateRuleDto? createRuleDto = null)
+> void CreateRule (CreateRuleDto createRuleDto = null)
 
 Creates a rule.
 
@@ -19,9 +19,9 @@ Creates a rule.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -37,7 +37,7 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new RuleApi(config);
-            var createRuleDto = new CreateRuleDto?(); // CreateRuleDto? |  (optional) 
+            var createRuleDto = new CreateRuleDto(); // CreateRuleDto |  (optional) 
 
             try
             {
@@ -76,7 +76,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **createRuleDto** | [**CreateRuleDto?**](CreateRuleDto?.md) |  | [optional]  |
+| **createRuleDto** | [**CreateRuleDto**](CreateRuleDto.md) |  | [optional]  |
 
 ### Return type
 
@@ -109,9 +109,9 @@ Gets a rule.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -203,9 +203,9 @@ Gets all rules.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -284,7 +284,7 @@ This endpoint does not need any parameter.
 
 <a id="updaterule"></a>
 # **UpdateRule**
-> void UpdateRule (RuleDto? ruleDto = null)
+> void UpdateRule (RuleDto ruleDto = null)
 
 Updates a rule.
 
@@ -292,9 +292,9 @@ Updates a rule.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -310,7 +310,7 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new RuleApi(config);
-            var ruleDto = new RuleDto?(); // RuleDto? |  (optional) 
+            var ruleDto = new RuleDto(); // RuleDto |  (optional) 
 
             try
             {
@@ -349,7 +349,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **ruleDto** | [**RuleDto?**](RuleDto?.md) |  | [optional]  |
+| **ruleDto** | [**RuleDto**](RuleDto.md) |  | [optional]  |
 
 ### Return type
 

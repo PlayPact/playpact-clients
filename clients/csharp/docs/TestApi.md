@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.TestApi
+# PlayPact.OpenAPI.Api.TestApi
 
 All URIs are relative to *http://localhost*
 
@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost*
 
 <a id="testaddingpactpoints"></a>
 # **TestAddingPactPoints**
-> void TestAddingPactPoints (int? newAmount = null, string? reason = null)
+> void TestAddingPactPoints (int? newAmount = null, string reason = null)
 
 
 
@@ -18,9 +18,9 @@ All URIs are relative to *http://localhost*
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -37,7 +37,7 @@ namespace Example
 
             var apiInstance = new TestApi(config);
             var newAmount = 56;  // int? |  (optional) 
-            var reason = "reason_example";  // string? |  (optional) 
+            var reason = "reason_example";  // string |  (optional) 
 
             try
             {
@@ -75,7 +75,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **newAmount** | **int?** |  | [optional]  |
-| **reason** | **string?** |  | [optional]  |
+| **reason** | **string** |  | [optional]  |
 
 ### Return type
 
@@ -108,9 +108,9 @@ void (empty response body)
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -191,9 +191,9 @@ void (empty response body)
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {

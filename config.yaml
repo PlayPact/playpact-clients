@@ -1,0 +1,3 @@
+additionalProperties:
+  packageName: PlayPact.OpenAPI
+  targetFramework: netstandard2.0

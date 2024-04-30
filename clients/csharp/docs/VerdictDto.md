@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.VerdictDto
+# PlayPact.OpenAPI.Model.VerdictDto
 
 ## Properties
 

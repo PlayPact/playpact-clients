@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.ReportApi
+# PlayPact.OpenAPI.Api.ReportApi
 
 All URIs are relative to *http://localhost*
 
@@ -16,7 +16,7 @@ All URIs are relative to *http://localhost*
 
 <a id="createmyreport"></a>
 # **CreateMyReport**
-> void CreateMyReport (CreateMyReportDto? createMyReportDto = null)
+> void CreateMyReport (CreateMyReportDto createMyReportDto = null)
 
 Creates a report.
 
@@ -24,9 +24,9 @@ Creates a report.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -42,7 +42,7 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ReportApi(config);
-            var createMyReportDto = new CreateMyReportDto?(); // CreateMyReportDto? |  (optional) 
+            var createMyReportDto = new CreateMyReportDto(); // CreateMyReportDto |  (optional) 
 
             try
             {
@@ -81,7 +81,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **createMyReportDto** | [**CreateMyReportDto?**](CreateMyReportDto?.md) |  | [optional]  |
+| **createMyReportDto** | [**CreateMyReportDto**](CreateMyReportDto.md) |  | [optional]  |
 
 ### Return type
 
@@ -114,9 +114,9 @@ Deletes a report.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -204,9 +204,9 @@ Gets your report.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -298,9 +298,9 @@ Gets all reports.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -392,9 +392,9 @@ Gets a report.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -486,9 +486,9 @@ Gets all reports.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -580,9 +580,9 @@ Gets a verdict.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -674,9 +674,9 @@ Gets all reports.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -760,7 +760,7 @@ catch (ApiException e)
 
 <a id="updatemyreport"></a>
 # **UpdateMyReport**
-> void UpdateMyReport (Guid? playPactUserId = null, MyReportDto? myReportDto = null)
+> void UpdateMyReport (Guid? playPactUserId = null, MyReportDto myReportDto = null)
 
 Updates a report.
 
@@ -768,9 +768,9 @@ Updates a report.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -787,7 +787,7 @@ namespace Example
 
             var apiInstance = new ReportApi(config);
             var playPactUserId = "playPactUserId_example";  // Guid? |  (optional) 
-            var myReportDto = new MyReportDto?(); // MyReportDto? |  (optional) 
+            var myReportDto = new MyReportDto(); // MyReportDto |  (optional) 
 
             try
             {
@@ -827,7 +827,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **playPactUserId** | **Guid?** |  | [optional]  |
-| **myReportDto** | [**MyReportDto?**](MyReportDto?.md) |  | [optional]  |
+| **myReportDto** | [**MyReportDto**](MyReportDto.md) |  | [optional]  |
 
 ### Return type
 

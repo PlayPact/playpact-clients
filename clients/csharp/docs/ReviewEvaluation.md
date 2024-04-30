@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.ReviewEvaluation
+# PlayPact.OpenAPI.Model.ReviewEvaluation
 
 ## Properties
 

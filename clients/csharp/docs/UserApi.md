@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.UserApi
+# PlayPact.OpenAPI.Api.UserApi
 
 All URIs are relative to *http://localhost*
 
@@ -28,9 +28,9 @@ Gets a users pact point history.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -126,9 +126,9 @@ Gets a users pact points.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -220,9 +220,9 @@ Gets the platform identifiers for a player.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -314,9 +314,9 @@ Gets a user by their PlayPact identifier.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -408,9 +408,9 @@ Gets all users.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -497,9 +497,9 @@ Gets all users on a server.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -583,7 +583,7 @@ catch (ApiException e)
 
 <a id="registerplaypactuser"></a>
 # **RegisterPlayPactUser**
-> void RegisterPlayPactUser (string? username = null, string? supabaseUUID = null)
+> void RegisterPlayPactUser (string username = null, string supabaseUUID = null)
 
 Registers a user to play pact.
 
@@ -591,9 +591,9 @@ Registers a user to play pact.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -609,8 +609,8 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new UserApi(config);
-            var username = "username_example";  // string? |  (optional) 
-            var supabaseUUID = "supabaseUUID_example";  // string? |  (optional) 
+            var username = "username_example";  // string |  (optional) 
+            var supabaseUUID = "supabaseUUID_example";  // string |  (optional) 
 
             try
             {
@@ -649,8 +649,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **username** | **string?** |  | [optional]  |
-| **supabaseUUID** | **string?** |  | [optional]  |
+| **username** | **string** |  | [optional]  |
+| **supabaseUUID** | **string** |  | [optional]  |
 
 ### Return type
 
@@ -675,7 +675,7 @@ void (empty response body)
 
 <a id="updatesausersplatformidentifiers"></a>
 # **UpdatesAUsersPlatformIdentifiers**
-> void UpdatesAUsersPlatformIdentifiers (Guid playPactUserId, PlatformIdentifierDto? platformIdentifierDto = null)
+> void UpdatesAUsersPlatformIdentifiers (Guid playPactUserId, PlatformIdentifierDto platformIdentifierDto = null)
 
 Updates the platform identifiers for a player.
 
@@ -683,9 +683,9 @@ Updates the platform identifiers for a player.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -702,7 +702,7 @@ namespace Example
 
             var apiInstance = new UserApi(config);
             var playPactUserId = "playPactUserId_example";  // Guid | 
-            var platformIdentifierDto = new PlatformIdentifierDto?(); // PlatformIdentifierDto? | The platform identifier information. (optional) 
+            var platformIdentifierDto = new PlatformIdentifierDto(); // PlatformIdentifierDto | The platform identifier information. (optional) 
 
             try
             {
@@ -742,7 +742,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **playPactUserId** | **Guid** |  |  |
-| **platformIdentifierDto** | [**PlatformIdentifierDto?**](PlatformIdentifierDto?.md) | The platform identifier information. | [optional]  |
+| **platformIdentifierDto** | [**PlatformIdentifierDto**](PlatformIdentifierDto.md) | The platform identifier information. | [optional]  |
 
 ### Return type
 
@@ -775,9 +775,9 @@ TODO: Tells PlayPact that a user has been banned from a server.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -852,7 +852,7 @@ void (empty response body)
 
 <a id="userchallengesserverlogin"></a>
 # **UserChallengesServerLogin**
-> bool UserChallengesServerLogin (PlatformIdentifierEnumDto? platform = null, ServerChallengeDto? serverChallengeDto = null)
+> bool UserChallengesServerLogin (PlatformIdentifierEnumDto? platform = null, ServerChallengeDto serverChallengeDto = null)
 
 Returns if the given player can join the server.
 
@@ -860,9 +860,9 @@ Returns if the given player can join the server.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -878,8 +878,8 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new UserApi(config);
-            var platform = new PlatformIdentifierEnumDto?(); // PlatformIdentifierEnumDto? |  (optional) 
-            var serverChallengeDto = new ServerChallengeDto?(); // ServerChallengeDto? |  (optional) 
+            var platform = (PlatformIdentifierEnumDto) "Steam";  // PlatformIdentifierEnumDto? |  (optional) 
+            var serverChallengeDto = new ServerChallengeDto(); // ServerChallengeDto |  (optional) 
 
             try
             {
@@ -922,8 +922,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **platform** | [**PlatformIdentifierEnumDto?**](PlatformIdentifierEnumDto?.md) |  | [optional]  |
-| **serverChallengeDto** | [**ServerChallengeDto?**](ServerChallengeDto?.md) |  | [optional]  |
+| **platform** | **PlatformIdentifierEnumDto?** |  | [optional]  |
+| **serverChallengeDto** | [**ServerChallengeDto**](ServerChallengeDto.md) |  | [optional]  |
 
 ### Return type
 
@@ -956,9 +956,9 @@ TODO: Tells PlayPact that a user has joined on a server.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -1041,9 +1041,9 @@ TODO: Tells PlayPact that a user has been kicked from a server.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -1126,9 +1126,9 @@ TODO: Tells PlayPact that a user has left a server.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {

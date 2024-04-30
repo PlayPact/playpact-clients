@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.CreateEvidenceDto
+# PlayPact.OpenAPI.Model.CreateEvidenceDto
 
 ## Properties
 

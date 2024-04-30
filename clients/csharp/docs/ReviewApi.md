@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.ReviewApi
+# PlayPact.OpenAPI.Api.ReviewApi
 
 All URIs are relative to *http://localhost*
 
@@ -12,7 +12,7 @@ All URIs are relative to *http://localhost*
 
 <a id="createreview"></a>
 # **CreateReview**
-> void CreateReview (CreateReviewDto? createReviewDto = null)
+> void CreateReview (CreateReviewDto createReviewDto = null)
 
 TODO: Creates a report.
 
@@ -20,9 +20,9 @@ TODO: Creates a report.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -38,7 +38,7 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ReviewApi(config);
-            var createReviewDto = new CreateReviewDto?(); // CreateReviewDto? |  (optional) 
+            var createReviewDto = new CreateReviewDto(); // CreateReviewDto |  (optional) 
 
             try
             {
@@ -77,7 +77,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **createReviewDto** | [**CreateReviewDto?**](CreateReviewDto?.md) |  | [optional]  |
+| **createReviewDto** | [**CreateReviewDto**](CreateReviewDto.md) |  | [optional]  |
 
 ### Return type
 
@@ -110,9 +110,9 @@ Deletes a report.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -202,9 +202,9 @@ Gets all reviews, including the user's review that will hold more information.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -296,9 +296,9 @@ Gets all reviews, including the user's review that will hold more information.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -382,7 +382,7 @@ catch (ApiException e)
 
 <a id="updatemyreview"></a>
 # **UpdateMyReview**
-> void UpdateMyReview (Guid? playPactUserId = null, ReviewDto? reviewDto = null)
+> void UpdateMyReview (Guid? playPactUserId = null, ReviewDto reviewDto = null)
 
 Updates a report.
 
@@ -390,9 +390,9 @@ Updates a report.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -409,7 +409,7 @@ namespace Example
 
             var apiInstance = new ReviewApi(config);
             var playPactUserId = "playPactUserId_example";  // Guid? |  (optional) 
-            var reviewDto = new ReviewDto?(); // ReviewDto? |  (optional) 
+            var reviewDto = new ReviewDto(); // ReviewDto |  (optional) 
 
             try
             {
@@ -449,7 +449,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **playPactUserId** | **Guid?** |  | [optional]  |
-| **reviewDto** | [**ReviewDto?**](ReviewDto?.md) |  | [optional]  |
+| **reviewDto** | [**ReviewDto**](ReviewDto.md) |  | [optional]  |
 
 ### Return type
 

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.ServerApi
+# PlayPact.OpenAPI.Api.ServerApi
 
 All URIs are relative to *http://localhost*
 
@@ -15,7 +15,7 @@ All URIs are relative to *http://localhost*
 
 <a id="createserver"></a>
 # **CreateServer**
-> void CreateServer (Guid playPactUserId, CreateMyServerDto? createMyServerDto = null)
+> void CreateServer (Guid playPactUserId, CreateMyServerDto createMyServerDto = null)
 
 Creates a server.
 
@@ -23,9 +23,9 @@ Creates a server.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -42,7 +42,7 @@ namespace Example
 
             var apiInstance = new ServerApi(config);
             var playPactUserId = "playPactUserId_example";  // Guid | 
-            var createMyServerDto = new CreateMyServerDto?(); // CreateMyServerDto? |  (optional) 
+            var createMyServerDto = new CreateMyServerDto(); // CreateMyServerDto |  (optional) 
 
             try
             {
@@ -82,7 +82,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **playPactUserId** | **Guid** |  |  |
-| **createMyServerDto** | [**CreateMyServerDto?**](CreateMyServerDto?.md) |  | [optional]  |
+| **createMyServerDto** | [**CreateMyServerDto**](CreateMyServerDto.md) |  | [optional]  |
 
 ### Return type
 
@@ -115,9 +115,9 @@ Deletes a server.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -207,9 +207,9 @@ Gets a server.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -301,9 +301,9 @@ Gets all servers created by an user.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -395,9 +395,9 @@ Gets a server.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -489,9 +489,9 @@ Gets all servers.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -578,9 +578,9 @@ TODO: Updates the metadata of a server.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -655,7 +655,7 @@ void (empty response body)
 
 <a id="updatemyserver"></a>
 # **UpdateMyServer**
-> void UpdateMyServer (string playPactServerId, MyServerDto? myServerDto = null)
+> void UpdateMyServer (string playPactServerId, MyServerDto myServerDto = null)
 
 Updates a server.
 
@@ -663,9 +663,9 @@ Updates a server.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -682,7 +682,7 @@ namespace Example
 
             var apiInstance = new ServerApi(config);
             var playPactServerId = "playPactServerId_example";  // string | 
-            var myServerDto = new MyServerDto?(); // MyServerDto? |  (optional) 
+            var myServerDto = new MyServerDto(); // MyServerDto |  (optional) 
 
             try
             {
@@ -722,7 +722,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **playPactServerId** | **string** |  |  |
-| **myServerDto** | [**MyServerDto?**](MyServerDto?.md) |  | [optional]  |
+| **myServerDto** | [**MyServerDto**](MyServerDto.md) |  | [optional]  |
 
 ### Return type
 

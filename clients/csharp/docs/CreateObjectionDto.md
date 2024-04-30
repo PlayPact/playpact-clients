@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.CreateObjectionDto
+# PlayPact.OpenAPI.Model.CreateObjectionDto
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.ServerDto
+# PlayPact.OpenAPI.Model.ServerDto
 
 ## Properties
 

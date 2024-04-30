@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.UserListDto
+# PlayPact.OpenAPI.Model.UserListDto
 
 ## Properties
 

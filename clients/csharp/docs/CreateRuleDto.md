@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.CreateRuleDto
+# PlayPact.OpenAPI.Model.CreateRuleDto
 
 ## Properties
 

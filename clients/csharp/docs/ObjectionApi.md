@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.ObjectionApi
+# PlayPact.OpenAPI.Api.ObjectionApi
 
 All URIs are relative to *http://localhost*
 
@@ -11,7 +11,7 @@ All URIs are relative to *http://localhost*
 
 <a id="createmyobjection"></a>
 # **CreateMyObjection**
-> void CreateMyObjection (CreateObjectionDto? createObjectionDto = null)
+> void CreateMyObjection (CreateObjectionDto createObjectionDto = null)
 
 Creates a objection.
 
@@ -19,9 +19,9 @@ Creates a objection.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -37,7 +37,7 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ObjectionApi(config);
-            var createObjectionDto = new CreateObjectionDto?(); // CreateObjectionDto? |  (optional) 
+            var createObjectionDto = new CreateObjectionDto(); // CreateObjectionDto |  (optional) 
 
             try
             {
@@ -76,7 +76,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **createObjectionDto** | [**CreateObjectionDto?**](CreateObjectionDto?.md) |  | [optional]  |
+| **createObjectionDto** | [**CreateObjectionDto**](CreateObjectionDto.md) |  | [optional]  |
 
 ### Return type
 
@@ -109,9 +109,9 @@ Gets the objection for a report with more details.  Only works for the user who 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -205,9 +205,9 @@ Gets the objection for a report.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -293,7 +293,7 @@ catch (ApiException e)
 
 <a id="updatemyobjection"></a>
 # **UpdateMyObjection**
-> void UpdateMyObjection (Guid? playPactObjectionId = null, ObjectionDto? objectionDto = null)
+> void UpdateMyObjection (Guid? playPactObjectionId = null, ObjectionDto objectionDto = null)
 
 TODO: Updates a objection.
 
@@ -301,9 +301,9 @@ TODO: Updates a objection.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
 
 namespace Example
 {
@@ -320,7 +320,7 @@ namespace Example
 
             var apiInstance = new ObjectionApi(config);
             var playPactObjectionId = "playPactObjectionId_example";  // Guid? |  (optional) 
-            var objectionDto = new ObjectionDto?(); // ObjectionDto? |  (optional) 
+            var objectionDto = new ObjectionDto(); // ObjectionDto |  (optional) 
 
             try
             {
@@ -360,7 +360,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **playPactObjectionId** | **Guid?** |  | [optional]  |
-| **objectionDto** | [**ObjectionDto?**](ObjectionDto?.md) |  | [optional]  |
+| **objectionDto** | [**ObjectionDto**](ObjectionDto.md) |  | [optional]  |
 
 ### Return type
 

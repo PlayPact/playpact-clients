@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.ReportStatus
+# PlayPact.OpenAPI.Model.ReportStatus
 
 ## Properties
 

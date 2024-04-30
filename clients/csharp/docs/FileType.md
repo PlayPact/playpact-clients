@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.FileType
+# PlayPact.OpenAPI.Model.FileType
 
 ## Properties
 

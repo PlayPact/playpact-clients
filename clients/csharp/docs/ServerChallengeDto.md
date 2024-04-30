@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.ServerChallengeDto
+# PlayPact.OpenAPI.Model.ServerChallengeDto
 
 ## Properties
 
