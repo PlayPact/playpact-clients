@@ -546,6 +546,7 @@ namespace PlayPact.OpenAPI.Api
             PlayPact.OpenAPI.Client.RequestOptions localVarRequestOptions = new PlayPact.OpenAPI.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json-patch+json",
                 "application/json",
                 "text/json",
                 "application/*+json"
@@ -622,6 +623,7 @@ namespace PlayPact.OpenAPI.Api
             PlayPact.OpenAPI.Client.RequestOptions localVarRequestOptions = new PlayPact.OpenAPI.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
                 "application/json", 
                 "text/json", 
                 "application/*+json"
@@ -1556,6 +1558,7 @@ namespace PlayPact.OpenAPI.Api
             PlayPact.OpenAPI.Client.RequestOptions localVarRequestOptions = new PlayPact.OpenAPI.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json-patch+json",
                 "application/json",
                 "text/json",
                 "application/*+json"
@@ -1638,6 +1641,7 @@ namespace PlayPact.OpenAPI.Api
             PlayPact.OpenAPI.Client.RequestOptions localVarRequestOptions = new PlayPact.OpenAPI.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
                 "application/json", 
                 "text/json", 
                 "application/*+json"

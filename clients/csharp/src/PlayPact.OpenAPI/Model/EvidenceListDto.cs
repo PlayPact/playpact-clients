@@ -27,49 +27,49 @@ using OpenAPIDateConverter = PlayPact.OpenAPI.Client.OpenAPIDateConverter;
 namespace PlayPact.OpenAPI.Model
 {
     /// <summary>
-    /// CreateObjectionDto
+    /// EvidenceListDto
     /// </summary>
-    [DataContract(Name = "CreateObjectionDto")]
-    public partial class CreateObjectionDto : IValidatableObject
+    [DataContract(Name = "EvidenceListDto")]
+    public partial class EvidenceListDto : IValidatableObject
     {
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateObjectionDto" /> class.
+        /// Gets or Sets FileType
         /// </summary>
-        /// <param name="playPactObjectionId">playPactObjectionId.</param>
-        /// <param name="objection">objection.</param>
-        /// <param name="playPactSubjectId">playPactSubjectId.</param>
-        /// <param name="playPactReportId">playPactReportId.</param>
-        public CreateObjectionDto(Guid playPactObjectionId = default(Guid), string objection = default(string), Guid playPactSubjectId = default(Guid), Guid playPactReportId = default(Guid))
+        [DataMember(Name = "fileType", EmitDefaultValue = false)]
+        public FileType? FileType { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EvidenceListDto" /> class.
+        /// </summary>
+        /// <param name="playPactEvidenceId">playPactEvidenceId.</param>
+        /// <param name="description">description.</param>
+        /// <param name="fileType">fileType.</param>
+        /// <param name="uri">uri.</param>
+        public EvidenceListDto(Guid playPactEvidenceId = default(Guid), string description = default(string), FileType? fileType = default(FileType?), string uri = default(string))
         {
-            this.PlayPactObjectionId = playPactObjectionId;
-            this.Objection = objection;
-            this.PlayPactSubjectId = playPactSubjectId;
-            this.PlayPactReportId = playPactReportId;
+            this.PlayPactEvidenceId = playPactEvidenceId;
+            this.Description = description;
+            this.FileType = fileType;
+            this.Uri = uri;
         }
 
         /// <summary>
-        /// Gets or Sets PlayPactObjectionId
+        /// Gets or Sets PlayPactEvidenceId
         /// </summary>
-        [DataMember(Name = "playPactObjectionId", EmitDefaultValue = false)]
-        public Guid PlayPactObjectionId { get; set; }
+        [DataMember(Name = "playPactEvidenceId", EmitDefaultValue = false)]
+        public Guid PlayPactEvidenceId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Objection
+        /// Gets or Sets Description
         /// </summary>
-        [DataMember(Name = "objection", EmitDefaultValue = true)]
-        public string Objection { get; set; }
+        [DataMember(Name = "description", EmitDefaultValue = true)]
+        public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets PlayPactSubjectId
+        /// Gets or Sets Uri
         /// </summary>
-        [DataMember(Name = "playPactSubjectId", EmitDefaultValue = false)]
-        public Guid PlayPactSubjectId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PlayPactReportId
-        /// </summary>
-        [DataMember(Name = "playPactReportId", EmitDefaultValue = false)]
-        public Guid PlayPactReportId { get; set; }
+        [DataMember(Name = "uri", EmitDefaultValue = true)]
+        public string Uri { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -78,11 +78,11 @@ namespace PlayPact.OpenAPI.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CreateObjectionDto {\n");
-            sb.Append("  PlayPactObjectionId: ").Append(PlayPactObjectionId).Append("\n");
-            sb.Append("  Objection: ").Append(Objection).Append("\n");
-            sb.Append("  PlayPactSubjectId: ").Append(PlayPactSubjectId).Append("\n");
-            sb.Append("  PlayPactReportId: ").Append(PlayPactReportId).Append("\n");
+            sb.Append("class EvidenceListDto {\n");
+            sb.Append("  PlayPactEvidenceId: ").Append(PlayPactEvidenceId).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  FileType: ").Append(FileType).Append("\n");
+            sb.Append("  Uri: ").Append(Uri).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -209,6 +209,32 @@ namespace PlayPact.OpenAPI.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> UpdateMyReportWithHttpInfo(Guid? playPactUserId = default(Guid?), MyReportDto myReportDto = default(MyReportDto), int operationIndex = 0);
+        /// <summary>
+        /// Updates a report status.
+        /// </summary>
+        /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="playPactReportId"></param>
+        /// <param name="playPactUserId"> (optional)</param>
+        /// <param name="reportStatus"> (optional)</param>
+        /// <param name="isSystemUpdate"> (optional, default to false)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns></returns>
+        void UpdateReportStatus(Guid playPactReportId, Guid? playPactUserId = default(Guid?), ReportStatus? reportStatus = default(ReportStatus?), bool? isSystemUpdate = default(bool?), int operationIndex = 0);
+
+        /// <summary>
+        /// Updates a report status.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="playPactReportId"></param>
+        /// <param name="playPactUserId"> (optional)</param>
+        /// <param name="reportStatus"> (optional)</param>
+        /// <param name="isSystemUpdate"> (optional, default to false)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> UpdateReportStatusWithHttpInfo(Guid playPactReportId, Guid? playPactUserId = default(Guid?), ReportStatus? reportStatus = default(ReportStatus?), bool? isSystemUpdate = default(bool?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -445,6 +471,37 @@ namespace PlayPact.OpenAPI.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> UpdateMyReportWithHttpInfoAsync(Guid? playPactUserId = default(Guid?), MyReportDto myReportDto = default(MyReportDto), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Updates a report status.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="playPactReportId"></param>
+        /// <param name="playPactUserId"> (optional)</param>
+        /// <param name="reportStatus"> (optional)</param>
+        /// <param name="isSystemUpdate"> (optional, default to false)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task UpdateReportStatusAsync(Guid playPactReportId, Guid? playPactUserId = default(Guid?), ReportStatus? reportStatus = default(ReportStatus?), bool? isSystemUpdate = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Updates a report status.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="playPactReportId"></param>
+        /// <param name="playPactUserId"> (optional)</param>
+        /// <param name="reportStatus"> (optional)</param>
+        /// <param name="isSystemUpdate"> (optional, default to false)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateReportStatusWithHttpInfoAsync(Guid playPactReportId, Guid? playPactUserId = default(Guid?), ReportStatus? reportStatus = default(ReportStatus?), bool? isSystemUpdate = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -589,6 +646,7 @@ namespace PlayPact.OpenAPI.Api
             PlayPact.OpenAPI.Client.RequestOptions localVarRequestOptions = new PlayPact.OpenAPI.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json-patch+json",
                 "application/json",
                 "text/json",
                 "application/*+json"
@@ -662,6 +720,7 @@ namespace PlayPact.OpenAPI.Api
             PlayPact.OpenAPI.Client.RequestOptions localVarRequestOptions = new PlayPact.OpenAPI.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
                 "application/json", 
                 "text/json", 
                 "application/*+json"
@@ -1755,6 +1814,7 @@ namespace PlayPact.OpenAPI.Api
             PlayPact.OpenAPI.Client.RequestOptions localVarRequestOptions = new PlayPact.OpenAPI.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json-patch+json",
                 "application/json",
                 "text/json",
                 "application/*+json"
@@ -1834,6 +1894,7 @@ namespace PlayPact.OpenAPI.Api
             PlayPact.OpenAPI.Client.RequestOptions localVarRequestOptions = new PlayPact.OpenAPI.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
                 "application/json", 
                 "text/json", 
                 "application/*+json"
@@ -1876,6 +1937,180 @@ namespace PlayPact.OpenAPI.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateMyReport", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Updates a report status. 
+        /// </summary>
+        /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="playPactReportId"></param>
+        /// <param name="playPactUserId"> (optional)</param>
+        /// <param name="reportStatus"> (optional)</param>
+        /// <param name="isSystemUpdate"> (optional, default to false)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns></returns>
+        public void UpdateReportStatus(Guid playPactReportId, Guid? playPactUserId = default(Guid?), ReportStatus? reportStatus = default(ReportStatus?), bool? isSystemUpdate = default(bool?), int operationIndex = 0)
+        {
+            UpdateReportStatusWithHttpInfo(playPactReportId, playPactUserId, reportStatus, isSystemUpdate);
+        }
+
+        /// <summary>
+        /// Updates a report status. 
+        /// </summary>
+        /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="playPactReportId"></param>
+        /// <param name="playPactUserId"> (optional)</param>
+        /// <param name="reportStatus"> (optional)</param>
+        /// <param name="isSystemUpdate"> (optional, default to false)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public PlayPact.OpenAPI.Client.ApiResponse<Object> UpdateReportStatusWithHttpInfo(Guid playPactReportId, Guid? playPactUserId = default(Guid?), ReportStatus? reportStatus = default(ReportStatus?), bool? isSystemUpdate = default(bool?), int operationIndex = 0)
+        {
+            PlayPact.OpenAPI.Client.RequestOptions localVarRequestOptions = new PlayPact.OpenAPI.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = PlayPact.OpenAPI.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = PlayPact.OpenAPI.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("playPactReportId", PlayPact.OpenAPI.Client.ClientUtils.ParameterToString(playPactReportId)); // path parameter
+            if (playPactUserId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(PlayPact.OpenAPI.Client.ClientUtils.ParameterToMultiMap("", "playPactUserId", playPactUserId));
+            }
+            if (reportStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(PlayPact.OpenAPI.Client.ClientUtils.ParameterToMultiMap("", "reportStatus", reportStatus));
+            }
+            if (isSystemUpdate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(PlayPact.OpenAPI.Client.ClientUtils.ParameterToMultiMap("", "isSystemUpdate", isSystemUpdate));
+            }
+
+            localVarRequestOptions.Operation = "ReportApi.UpdateReportStatus";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (Bearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<Object>("/api/Report/status/{playPactReportId}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateReportStatus", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Updates a report status. 
+        /// </summary>
+        /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="playPactReportId"></param>
+        /// <param name="playPactUserId"> (optional)</param>
+        /// <param name="reportStatus"> (optional)</param>
+        /// <param name="isSystemUpdate"> (optional, default to false)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task UpdateReportStatusAsync(Guid playPactReportId, Guid? playPactUserId = default(Guid?), ReportStatus? reportStatus = default(ReportStatus?), bool? isSystemUpdate = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            await UpdateReportStatusWithHttpInfoAsync(playPactReportId, playPactUserId, reportStatus, isSystemUpdate, operationIndex, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Updates a report status. 
+        /// </summary>
+        /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="playPactReportId"></param>
+        /// <param name="playPactUserId"> (optional)</param>
+        /// <param name="reportStatus"> (optional)</param>
+        /// <param name="isSystemUpdate"> (optional, default to false)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<PlayPact.OpenAPI.Client.ApiResponse<Object>> UpdateReportStatusWithHttpInfoAsync(Guid playPactReportId, Guid? playPactUserId = default(Guid?), ReportStatus? reportStatus = default(ReportStatus?), bool? isSystemUpdate = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            PlayPact.OpenAPI.Client.RequestOptions localVarRequestOptions = new PlayPact.OpenAPI.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = PlayPact.OpenAPI.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = PlayPact.OpenAPI.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("playPactReportId", PlayPact.OpenAPI.Client.ClientUtils.ParameterToString(playPactReportId)); // path parameter
+            if (playPactUserId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(PlayPact.OpenAPI.Client.ClientUtils.ParameterToMultiMap("", "playPactUserId", playPactUserId));
+            }
+            if (reportStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(PlayPact.OpenAPI.Client.ClientUtils.ParameterToMultiMap("", "reportStatus", reportStatus));
+            }
+            if (isSystemUpdate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(PlayPact.OpenAPI.Client.ClientUtils.ParameterToMultiMap("", "isSystemUpdate", isSystemUpdate));
+            }
+
+            localVarRequestOptions.Operation = "ReportApi.UpdateReportStatus";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (Bearer) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/api/Report/status/{playPactReportId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateReportStatus", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

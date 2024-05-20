@@ -119,6 +119,15 @@ namespace PlayPact.OpenAPI.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'Objection'
+        /// </summary>
+        [Fact]
+        public void ObjectionTest()
+        {
+            // TODO unit test for the property 'Objection'
+        }
+
+        /// <summary>
         /// Test the property 'Rules'
         /// </summary>
         [Fact]

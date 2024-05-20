@@ -7,11 +7,11 @@ appveyor.yml
 docs/CreateEvidenceDto.md
 docs/CreateMyReportDto.md
 docs/CreateMyServerDto.md
-docs/CreateObjectionDto.md
 docs/CreateReviewDto.md
 docs/CreateRuleDto.md
 docs/DashboardApi.md
 docs/EvidenceDto.md
+docs/EvidenceListDto.md
 docs/FileType.md
 docs/MyReportDto.md
 docs/MyReportListDto.md
@@ -57,10 +57,10 @@ src/PlayPact.OpenAPI.Test/Api/UserApiTests.cs
 src/PlayPact.OpenAPI.Test/Model/CreateEvidenceDtoTests.cs
 src/PlayPact.OpenAPI.Test/Model/CreateMyReportDtoTests.cs
 src/PlayPact.OpenAPI.Test/Model/CreateMyServerDtoTests.cs
-src/PlayPact.OpenAPI.Test/Model/CreateObjectionDtoTests.cs
 src/PlayPact.OpenAPI.Test/Model/CreateReviewDtoTests.cs
 src/PlayPact.OpenAPI.Test/Model/CreateRuleDtoTests.cs
 src/PlayPact.OpenAPI.Test/Model/EvidenceDtoTests.cs
+src/PlayPact.OpenAPI.Test/Model/EvidenceListDtoTests.cs
 src/PlayPact.OpenAPI.Test/Model/FileTypeTests.cs
 src/PlayPact.OpenAPI.Test/Model/MyReportDtoTests.cs
 src/PlayPact.OpenAPI.Test/Model/MyReportListDtoTests.cs
@@ -115,10 +115,10 @@ src/PlayPact.OpenAPI/Model/AbstractOpenAPISchema.cs
 src/PlayPact.OpenAPI/Model/CreateEvidenceDto.cs
 src/PlayPact.OpenAPI/Model/CreateMyReportDto.cs
 src/PlayPact.OpenAPI/Model/CreateMyServerDto.cs
-src/PlayPact.OpenAPI/Model/CreateObjectionDto.cs
 src/PlayPact.OpenAPI/Model/CreateReviewDto.cs
 src/PlayPact.OpenAPI/Model/CreateRuleDto.cs
 src/PlayPact.OpenAPI/Model/EvidenceDto.cs
+src/PlayPact.OpenAPI/Model/EvidenceListDto.cs
 src/PlayPact.OpenAPI/Model/FileType.cs
 src/PlayPact.OpenAPI/Model/MyReportDto.cs
 src/PlayPact.OpenAPI/Model/MyReportListDto.cs

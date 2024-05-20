@@ -56,25 +56,14 @@ namespace PlayPact.OpenAPI.Test.Api
         }
 
         /// <summary>
-        /// Test CreateMyObjection
-        /// </summary>
-        [Fact]
-        public void CreateMyObjectionTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //CreateObjectionDto createObjectionDto = null;
-            //instance.CreateMyObjection(createObjectionDto);
-        }
-
-        /// <summary>
         /// Test GetMyObjection
         /// </summary>
         [Fact]
         public void GetMyObjectionTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //Guid? playPactReportId = null;
-            //Guid? playPactUserId = null;
+            //Guid playPactReportId = null;
+            //Guid playPactUserId = null;
             //var response = instance.GetMyObjection(playPactReportId, playPactUserId);
             //Assert.IsType<ObjectionDto>(response);
         }
@@ -87,7 +76,7 @@ namespace PlayPact.OpenAPI.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //Guid playPactReportId = null;
-            //Guid? playPactUserId = null;
+            //Guid playPactUserId = null;
             //var response = instance.GetObjection(playPactReportId, playPactUserId);
             //Assert.IsType<ObjectionDto>(response);
         }
@@ -99,9 +88,10 @@ namespace PlayPact.OpenAPI.Test.Api
         public void UpdateMyObjectionTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //Guid? playPactObjectionId = null;
+            //Guid playPactReportId = null;
+            //Guid playPactUserId = null;
             //ObjectionDto objectionDto = null;
-            //instance.UpdateMyObjection(playPactObjectionId, objectionDto);
+            //instance.UpdateMyObjection(playPactReportId, playPactUserId, objectionDto);
         }
     }
 }

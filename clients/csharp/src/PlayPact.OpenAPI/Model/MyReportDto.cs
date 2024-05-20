@@ -48,8 +48,9 @@ namespace PlayPact.OpenAPI.Model
         /// <param name="server">server.</param>
         /// <param name="reportStatus">reportStatus.</param>
         /// <param name="evidence">evidence.</param>
+        /// <param name="objection">objection.</param>
         /// <param name="rules">rules.</param>
-        public MyReportDto(Guid playPactReportId = default(Guid), string accusation = default(string), UserListDto creator = default(UserListDto), UserListDto subject = default(UserListDto), MyServerListDto server = default(MyServerListDto), ReportStatus? reportStatus = default(ReportStatus?), List<EvidenceDto> evidence = default(List<EvidenceDto>), List<RuleListDto> rules = default(List<RuleListDto>))
+        public MyReportDto(Guid playPactReportId = default(Guid), string accusation = default(string), UserListDto creator = default(UserListDto), UserListDto subject = default(UserListDto), MyServerListDto server = default(MyServerListDto), ReportStatus? reportStatus = default(ReportStatus?), List<EvidenceDto> evidence = default(List<EvidenceDto>), ObjectionDto objection = default(ObjectionDto), List<RuleListDto> rules = default(List<RuleListDto>))
         {
             this.PlayPactReportId = playPactReportId;
             this.Accusation = accusation;
@@ -58,6 +59,7 @@ namespace PlayPact.OpenAPI.Model
             this.Server = server;
             this.ReportStatus = reportStatus;
             this.Evidence = evidence;
+            this.Objection = objection;
             this.Rules = rules;
         }
 
@@ -98,6 +100,12 @@ namespace PlayPact.OpenAPI.Model
         public List<EvidenceDto> Evidence { get; set; }
 
         /// <summary>
+        /// Gets or Sets Objection
+        /// </summary>
+        [DataMember(Name = "objection", EmitDefaultValue = false)]
+        public ObjectionDto Objection { get; set; }
+
+        /// <summary>
         /// Gets or Sets Rules
         /// </summary>
         [DataMember(Name = "rules", EmitDefaultValue = true)]
@@ -118,6 +126,7 @@ namespace PlayPact.OpenAPI.Model
             sb.Append("  Server: ").Append(Server).Append("\n");
             sb.Append("  ReportStatus: ").Append(ReportStatus).Append("\n");
             sb.Append("  Evidence: ").Append(Evidence).Append("\n");
+            sb.Append("  Objection: ").Append(Objection).Append("\n");
             sb.Append("  Rules: ").Append(Rules).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

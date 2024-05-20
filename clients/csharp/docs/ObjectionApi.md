@@ -4,104 +4,13 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateMyObjection**](ObjectionApi.md#createmyobjection) | **POST** /api/Objection | Creates a objection. |
-| [**GetMyObjection**](ObjectionApi.md#getmyobjection) | **GET** /api/Objection | Gets the objection for a report with more details.  Only works for the user who created the report. |
-| [**GetObjection**](ObjectionApi.md#getobjection) | **GET** /api/Objection/{playPactReportId} | Gets the objection for a report. |
-| [**UpdateMyObjection**](ObjectionApi.md#updatemyobjection) | **PUT** /api/Objection | TODO: Updates a objection. |
-
-<a id="createmyobjection"></a>
-# **CreateMyObjection**
-> void CreateMyObjection (CreateObjectionDto createObjectionDto = null)
-
-Creates a objection.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using PlayPact.OpenAPI.Api;
-using PlayPact.OpenAPI.Client;
-using PlayPact.OpenAPI.Model;
-
-namespace Example
-{
-    public class CreateMyObjectionExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
-            // Configure API key authorization: Bearer
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
-
-            var apiInstance = new ObjectionApi(config);
-            var createObjectionDto = new CreateObjectionDto(); // CreateObjectionDto |  (optional) 
-
-            try
-            {
-                // Creates a objection.
-                apiInstance.CreateMyObjection(createObjectionDto);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling ObjectionApi.CreateMyObjection: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the CreateMyObjectionWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Creates a objection.
-    apiInstance.CreateMyObjectionWithHttpInfo(createObjectionDto);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling ObjectionApi.CreateMyObjectionWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **createObjectionDto** | [**CreateObjectionDto**](CreateObjectionDto.md) |  | [optional]  |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, text/json, application/*+json
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+| [**GetMyObjection**](ObjectionApi.md#getmyobjection) | **GET** /api/Objection/my/objection/{playPactReportId}/user/{playPactUserId} | Gets the objection for a report with more details.  Only works for the user who created the report. |
+| [**GetObjection**](ObjectionApi.md#getobjection) | **GET** /api/Objection/report/{playPactReportId}/user/{playPactUserId} | Gets the objection for a report. |
+| [**UpdateMyObjection**](ObjectionApi.md#updatemyobjection) | **PUT** /api/Objection/my/objection/{playPactReportId}/user/{playPactUserId} | Updates a objection. |
 
 <a id="getmyobjection"></a>
 # **GetMyObjection**
-> ObjectionDto GetMyObjection (Guid? playPactReportId = null, Guid? playPactUserId = null)
+> ObjectionDto GetMyObjection (Guid playPactReportId, Guid playPactUserId)
 
 Gets the objection for a report with more details.  Only works for the user who created the report.
 
@@ -127,8 +36,8 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ObjectionApi(config);
-            var playPactReportId = "playPactReportId_example";  // Guid? | Play pact id of the report to get the objection for. (optional) 
-            var playPactUserId = "playPactUserId_example";  // Guid? | Play pact id of the requesting user. (optional) 
+            var playPactReportId = "playPactReportId_example";  // Guid | Play pact id of the report to get the objection for.
+            var playPactUserId = "playPactUserId_example";  // Guid | Play pact id of the requesting user.
 
             try
             {
@@ -171,8 +80,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **playPactReportId** | **Guid?** | Play pact id of the report to get the objection for. | [optional]  |
-| **playPactUserId** | **Guid?** | Play pact id of the requesting user. | [optional]  |
+| **playPactReportId** | **Guid** | Play pact id of the report to get the objection for. |  |
+| **playPactUserId** | **Guid** | Play pact id of the requesting user. |  |
 
 ### Return type
 
@@ -197,7 +106,7 @@ catch (ApiException e)
 
 <a id="getobjection"></a>
 # **GetObjection**
-> ObjectionDto GetObjection (Guid playPactReportId, Guid? playPactUserId = null)
+> ObjectionDto GetObjection (Guid playPactReportId, Guid playPactUserId)
 
 Gets the objection for a report.
 
@@ -224,7 +133,7 @@ namespace Example
 
             var apiInstance = new ObjectionApi(config);
             var playPactReportId = "playPactReportId_example";  // Guid | Play pact id of the report to get the objection for.
-            var playPactUserId = "playPactUserId_example";  // Guid? | Play pact id of the requesting user. (optional) 
+            var playPactUserId = "playPactUserId_example";  // Guid | Play pact id of the requesting user.
 
             try
             {
@@ -268,7 +177,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **playPactReportId** | **Guid** | Play pact id of the report to get the objection for. |  |
-| **playPactUserId** | **Guid?** | Play pact id of the requesting user. | [optional]  |
+| **playPactUserId** | **Guid** | Play pact id of the requesting user. |  |
 
 ### Return type
 
@@ -293,9 +202,9 @@ catch (ApiException e)
 
 <a id="updatemyobjection"></a>
 # **UpdateMyObjection**
-> void UpdateMyObjection (Guid? playPactObjectionId = null, ObjectionDto objectionDto = null)
+> void UpdateMyObjection (Guid playPactReportId, Guid playPactUserId, ObjectionDto objectionDto = null)
 
-TODO: Updates a objection.
+Updates a objection.
 
 ### Example
 ```csharp
@@ -319,13 +228,14 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ObjectionApi(config);
-            var playPactObjectionId = "playPactObjectionId_example";  // Guid? |  (optional) 
+            var playPactReportId = "playPactReportId_example";  // Guid | 
+            var playPactUserId = "playPactUserId_example";  // Guid | 
             var objectionDto = new ObjectionDto(); // ObjectionDto |  (optional) 
 
             try
             {
-                // TODO: Updates a objection.
-                apiInstance.UpdateMyObjection(playPactObjectionId, objectionDto);
+                // Updates a objection.
+                apiInstance.UpdateMyObjection(playPactReportId, playPactUserId, objectionDto);
             }
             catch (ApiException  e)
             {
@@ -344,8 +254,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // TODO: Updates a objection.
-    apiInstance.UpdateMyObjectionWithHttpInfo(playPactObjectionId, objectionDto);
+    // Updates a objection.
+    apiInstance.UpdateMyObjectionWithHttpInfo(playPactReportId, playPactUserId, objectionDto);
 }
 catch (ApiException e)
 {
@@ -359,7 +269,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **playPactObjectionId** | **Guid?** |  | [optional]  |
+| **playPactReportId** | **Guid** |  |  |
+| **playPactUserId** | **Guid** |  |  |
 | **objectionDto** | [**ObjectionDto**](ObjectionDto.md) |  | [optional]  |
 
 ### Return type
@@ -372,7 +283,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 

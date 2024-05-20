@@ -46,13 +46,15 @@ namespace PlayPact.OpenAPI.Model
         /// <param name="createdOnServer">createdOnServer.</param>
         /// <param name="reportStatus">reportStatus.</param>
         /// <param name="rules">rules.</param>
-        public VerdictDto(Guid playPactReportId = default(Guid), string accusation = default(string), ServerListDto createdOnServer = default(ServerListDto), ReportStatus? reportStatus = default(ReportStatus?), List<RuleListDto> rules = default(List<RuleListDto>))
+        /// <param name="evidence">evidence.</param>
+        public VerdictDto(Guid playPactReportId = default(Guid), string accusation = default(string), ServerListDto createdOnServer = default(ServerListDto), ReportStatus? reportStatus = default(ReportStatus?), List<RuleListDto> rules = default(List<RuleListDto>), List<EvidenceListDto> evidence = default(List<EvidenceListDto>))
         {
             this.PlayPactReportId = playPactReportId;
             this.Accusation = accusation;
             this.CreatedOnServer = createdOnServer;
             this.ReportStatus = reportStatus;
             this.Rules = rules;
+            this.Evidence = evidence;
         }
 
         /// <summary>
@@ -80,6 +82,12 @@ namespace PlayPact.OpenAPI.Model
         public List<RuleListDto> Rules { get; set; }
 
         /// <summary>
+        /// Gets or Sets Evidence
+        /// </summary>
+        [DataMember(Name = "evidence", EmitDefaultValue = true)]
+        public List<EvidenceListDto> Evidence { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -92,6 +100,7 @@ namespace PlayPact.OpenAPI.Model
             sb.Append("  CreatedOnServer: ").Append(CreatedOnServer).Append("\n");
             sb.Append("  ReportStatus: ").Append(ReportStatus).Append("\n");
             sb.Append("  Rules: ").Append(Rules).Append("\n");
+            sb.Append("  Evidence: ").Append(Evidence).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

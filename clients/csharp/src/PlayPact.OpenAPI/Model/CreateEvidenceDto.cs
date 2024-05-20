@@ -42,17 +42,15 @@ namespace PlayPact.OpenAPI.Model
         /// Initializes a new instance of the <see cref="CreateEvidenceDto" /> class.
         /// </summary>
         /// <param name="playPactUploaderId">playPactUploaderId.</param>
-        /// <param name="playPactAttachedToId">playPactAttachedToId.</param>
         /// <param name="description">description.</param>
         /// <param name="fileType">fileType.</param>
-        /// <param name="blobStorageUri">blobStorageUri.</param>
-        public CreateEvidenceDto(Guid playPactUploaderId = default(Guid), Guid playPactAttachedToId = default(Guid), string description = default(string), FileType? fileType = default(FileType?), string blobStorageUri = default(string))
+        /// <param name="uri">uri.</param>
+        public CreateEvidenceDto(Guid playPactUploaderId = default(Guid), string description = default(string), FileType? fileType = default(FileType?), string uri = default(string))
         {
             this.PlayPactUploaderId = playPactUploaderId;
-            this.PlayPactAttachedToId = playPactAttachedToId;
             this.Description = description;
             this.FileType = fileType;
-            this.BlobStorageUri = blobStorageUri;
+            this.Uri = uri;
         }
 
         /// <summary>
@@ -62,22 +60,16 @@ namespace PlayPact.OpenAPI.Model
         public Guid PlayPactUploaderId { get; set; }
 
         /// <summary>
-        /// Gets or Sets PlayPactAttachedToId
-        /// </summary>
-        [DataMember(Name = "playPactAttachedToId", EmitDefaultValue = false)]
-        public Guid PlayPactAttachedToId { get; set; }
-
-        /// <summary>
         /// Gets or Sets Description
         /// </summary>
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets BlobStorageUri
+        /// Gets or Sets Uri
         /// </summary>
-        [DataMember(Name = "blobStorageUri", EmitDefaultValue = true)]
-        public string BlobStorageUri { get; set; }
+        [DataMember(Name = "uri", EmitDefaultValue = true)]
+        public string Uri { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -88,10 +80,9 @@ namespace PlayPact.OpenAPI.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class CreateEvidenceDto {\n");
             sb.Append("  PlayPactUploaderId: ").Append(PlayPactUploaderId).Append("\n");
-            sb.Append("  PlayPactAttachedToId: ").Append(PlayPactAttachedToId).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  FileType: ").Append(FileType).Append("\n");
-            sb.Append("  BlobStorageUri: ").Append(BlobStorageUri).Append("\n");
+            sb.Append("  Uri: ").Append(Uri).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

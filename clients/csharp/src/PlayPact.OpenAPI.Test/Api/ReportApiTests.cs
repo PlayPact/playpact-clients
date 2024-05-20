@@ -160,5 +160,19 @@ namespace PlayPact.OpenAPI.Test.Api
             //MyReportDto myReportDto = null;
             //instance.UpdateMyReport(playPactUserId, myReportDto);
         }
+
+        /// <summary>
+        /// Test UpdateReportStatus
+        /// </summary>
+        [Fact]
+        public void UpdateReportStatusTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //Guid playPactReportId = null;
+            //Guid? playPactUserId = null;
+            //ReportStatus? reportStatus = null;
+            //bool? isSystemUpdate = null;
+            //instance.UpdateReportStatus(playPactReportId, playPactUserId, reportStatus, isSystemUpdate);
+        }
     }
 }

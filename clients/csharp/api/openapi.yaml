@@ -104,7 +104,7 @@ paths:
       summary: Gets the number of registered servers.
       tags:
       - Dashboard
-  /api/Objection/{playPactReportId}:
+  /api/Objection/report/{playPactReportId}/user/{playPactUserId}:
     get:
       operationId: GetObjection
       parameters:
@@ -118,14 +118,14 @@ paths:
           type: string
         style: simple
       - description: Play pact id of the requesting user.
-        explode: true
-        in: query
+        explode: false
+        in: path
         name: playPactUserId
-        required: false
+        required: true
         schema:
           format: uuid
           type: string
-        style: form
+        style: simple
       responses:
         "200":
           content:
@@ -142,28 +142,28 @@ paths:
       summary: Gets the objection for a report.
       tags:
       - Objection
-  /api/Objection:
+  /api/Objection/my/objection/{playPactReportId}/user/{playPactUserId}:
     get:
       operationId: GetMyObjection
       parameters:
       - description: Play pact id of the report to get the objection for.
-        explode: true
-        in: query
+        explode: false
+        in: path
         name: playPactReportId
-        required: false
+        required: true
         schema:
           format: uuid
           type: string
-        style: form
+        style: simple
       - description: Play pact id of the requesting user.
-        explode: true
-        in: query
+        explode: false
+        in: path
         name: playPactUserId
-        required: false
+        required: true
         schema:
           format: uuid
           type: string
-        style: form
+        style: simple
       responses:
         "200":
           content:
@@ -181,38 +181,30 @@ paths:
         \ the user who created the report."
       tags:
       - Objection
-    post:
-      operationId: CreateMyObjection
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateObjectionDto'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/CreateObjectionDto'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/CreateObjectionDto'
-      responses:
-        "200":
-          description: Success
-      summary: Creates a objection.
-      tags:
-      - Objection
     put:
       operationId: UpdateMyObjection
       parameters:
-      - explode: true
-        in: query
-        name: playPactObjectionId
-        required: false
+      - explode: false
+        in: path
+        name: playPactReportId
+        required: true
         schema:
           format: uuid
           type: string
-        style: form
+        style: simple
+      - explode: false
+        in: path
+        name: playPactUserId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
       requestBody:
         content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/ObjectionDto'
           application/json:
             schema:
               $ref: '#/components/schemas/ObjectionDto'
@@ -225,7 +217,7 @@ paths:
       responses:
         "200":
           description: Success
-      summary: "TODO: Updates a objection."
+      summary: Updates a objection.
       tags:
       - Objection
   /api/PactPoint:
@@ -303,6 +295,9 @@ paths:
       operationId: CreateMyReport
       requestBody:
         content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/CreateMyReportDto'
           application/json:
             schema:
               $ref: '#/components/schemas/CreateMyReportDto'
@@ -331,6 +326,9 @@ paths:
         style: form
       requestBody:
         content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/MyReportDto'
           application/json:
             schema:
               $ref: '#/components/schemas/MyReportDto'
@@ -532,6 +530,51 @@ paths:
       summary: Gets a verdict.
       tags:
       - Report
+  /api/Report/status/{playPactReportId}:
+    put:
+      operationId: UpdateReportStatus
+      parameters:
+      - description: ""
+        explode: true
+        in: query
+        name: playPactUserId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - description: ""
+        explode: false
+        in: path
+        name: playPactReportId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: ""
+        explode: true
+        in: query
+        name: reportStatus
+        required: false
+        schema:
+          $ref: '#/components/schemas/ReportStatus'
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: isSystemUpdate
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      responses:
+        "200":
+          description: Success
+      summary: Updates a report status.
+      tags:
+      - Report
   /api/Review:
     delete:
       operationId: DeleteMyReview
@@ -562,6 +605,9 @@ paths:
       operationId: CreateReview
       requestBody:
         content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/CreateReviewDto'
           application/json:
             schema:
               $ref: '#/components/schemas/CreateReviewDto'
@@ -590,6 +636,9 @@ paths:
         style: form
       requestBody:
         content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/ReviewDto'
           application/json:
             schema:
               $ref: '#/components/schemas/ReviewDto'
@@ -698,6 +747,9 @@ paths:
       operationId: CreateRule
       requestBody:
         content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/CreateRuleDto'
           application/json:
             schema:
               $ref: '#/components/schemas/CreateRuleDto'
@@ -717,6 +769,9 @@ paths:
       operationId: UpdateRule
       requestBody:
         content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/RuleDto'
           application/json:
             schema:
               $ref: '#/components/schemas/RuleDto'
@@ -774,6 +829,9 @@ paths:
         style: simple
       requestBody:
         content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/CreateMyServerDto'
           application/json:
             schema:
               $ref: '#/components/schemas/CreateMyServerDto'
@@ -888,6 +946,9 @@ paths:
         style: simple
       requestBody:
         content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/MyServerDto'
           application/json:
             schema:
               $ref: '#/components/schemas/MyServerDto'
@@ -1050,6 +1111,9 @@ paths:
         style: simple
       requestBody:
         content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/PlatformIdentifierDto'
           application/json:
             schema:
               $ref: '#/components/schemas/PlatformIdentifierDto'
@@ -1272,6 +1336,9 @@ paths:
         style: form
       requestBody:
         content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/ServerChallengeDto'
           application/json:
             schema:
               $ref: '#/components/schemas/ServerChallengeDto'
@@ -1338,16 +1405,12 @@ components:
     CreateEvidenceDto:
       additionalProperties: false
       example:
-        blobStorageUri: blobStorageUri
         playPactUploaderId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         description: description
-        playPactAttachedToId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        uri: uri
         fileType: null
       properties:
         playPactUploaderId:
-          format: uuid
-          type: string
-        playPactAttachedToId:
           format: uuid
           type: string
         description:
@@ -1355,7 +1418,7 @@ components:
           type: string
         fileType:
           $ref: '#/components/schemas/FileType'
-        blobStorageUri:
+        uri:
           nullable: true
           type: string
       type: object
@@ -1364,15 +1427,13 @@ components:
       example:
         accusation: accusation
         evidence:
-        - blobStorageUri: blobStorageUri
-          playPactUploaderId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - playPactUploaderId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
-          playPactAttachedToId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          uri: uri
           fileType: null
-        - blobStorageUri: blobStorageUri
-          playPactUploaderId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - playPactUploaderId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
-          playPactAttachedToId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          uri: uri
           fileType: null
         playPactSubjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         rules:
@@ -1430,27 +1491,6 @@ components:
           nullable: true
           type: string
       type: object
-    CreateObjectionDto:
-      additionalProperties: false
-      example:
-        playPactObjectionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        playPactReportId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        playPactSubjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        objection: objection
-      properties:
-        playPactObjectionId:
-          format: uuid
-          type: string
-        objection:
-          nullable: true
-          type: string
-        playPactSubjectId:
-          format: uuid
-          type: string
-        playPactReportId:
-          format: uuid
-          type: string
-      type: object
     CreateReviewDto:
       additionalProperties: false
       example:
@@ -1497,15 +1537,15 @@ components:
     EvidenceDto:
       additionalProperties: false
       example:
-        blobStorageUri: blobStorageUri
         uploader:
           playPactUserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           username: username
         description: description
-        playPactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        uri: uri
+        playPactEvidenceId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         fileType: null
       properties:
-        playPactId:
+        playPactEvidenceId:
           format: uuid
           type: string
         uploader:
@@ -1515,7 +1555,27 @@ components:
           type: string
         fileType:
           $ref: '#/components/schemas/FileType'
-        blobStorageUri:
+        uri:
+          nullable: true
+          type: string
+      type: object
+    EvidenceListDto:
+      additionalProperties: false
+      example:
+        description: description
+        uri: uri
+        playPactEvidenceId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        fileType: null
+      properties:
+        playPactEvidenceId:
+          format: uuid
+          type: string
+        description:
+          nullable: true
+          type: string
+        fileType:
+          $ref: '#/components/schemas/FileType'
+        uri:
           nullable: true
           type: string
       type: object
@@ -1531,6 +1591,7 @@ components:
       - PNG
       - JPG
       - PDF
+      - URI
       type: string
     MyReportDto:
       additionalProperties: false
@@ -1549,19 +1610,19 @@ components:
           username: username
         accusation: accusation
         evidence:
-        - blobStorageUri: blobStorageUri
-          uploader:
+        - uploader:
             playPactUserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             username: username
           description: description
-          playPactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          uri: uri
+          playPactEvidenceId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           fileType: null
-        - blobStorageUri: blobStorageUri
-          uploader:
+        - uploader:
             playPactUserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             username: username
           description: description
-          playPactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          uri: uri
+          playPactEvidenceId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           fileType: null
         subject:
           playPactUserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -1572,6 +1633,27 @@ components:
           playPactRuleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - description: description
           playPactRuleId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        objection:
+          playPactObjectionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          creator:
+            playPactUserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            username: username
+          evidence:
+          - uploader:
+              playPactUserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              username: username
+            description: description
+            uri: uri
+            playPactEvidenceId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            fileType: null
+          - uploader:
+              playPactUserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              username: username
+            description: description
+            uri: uri
+            playPactEvidenceId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            fileType: null
+          statement: statement
       properties:
         playPactReportId:
           format: uuid
@@ -1592,6 +1674,8 @@ components:
             $ref: '#/components/schemas/EvidenceDto'
           nullable: true
           type: array
+        objection:
+          $ref: '#/components/schemas/ObjectionDto'
         rules:
           items:
             $ref: '#/components/schemas/RuleListDto'
@@ -1711,19 +1795,19 @@ components:
           playPactUserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           username: username
         evidence:
-        - blobStorageUri: blobStorageUri
-          uploader:
+        - uploader:
             playPactUserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             username: username
           description: description
-          playPactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          uri: uri
+          playPactEvidenceId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           fileType: null
-        - blobStorageUri: blobStorageUri
-          uploader:
+        - uploader:
             playPactUserId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             username: username
           description: description
-          playPactId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          uri: uri
+          playPactEvidenceId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           fileType: null
         statement: statement
       properties:
@@ -2087,6 +2171,15 @@ components:
       example:
         playPactReportId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         accusation: accusation
+        evidence:
+        - description: description
+          uri: uri
+          playPactEvidenceId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          fileType: null
+        - description: description
+          uri: uri
+          playPactEvidenceId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          fileType: null
         reportStatus: null
         rules:
         - description: description
@@ -2115,6 +2208,11 @@ components:
         rules:
           items:
             $ref: '#/components/schemas/RuleListDto'
+          nullable: true
+          type: array
+        evidence:
+          items:
+            $ref: '#/components/schemas/EvidenceListDto'
           nullable: true
           type: array
       type: object

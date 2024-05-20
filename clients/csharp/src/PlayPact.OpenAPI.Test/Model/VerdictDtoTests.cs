@@ -99,5 +99,14 @@ namespace PlayPact.OpenAPI.Test.Model
         {
             // TODO unit test for the property 'Rules'
         }
+
+        /// <summary>
+        /// Test the property 'Evidence'
+        /// </summary>
+        [Fact]
+        public void EvidenceTest()
+        {
+            // TODO unit test for the property 'Evidence'
+        }
     }
 }

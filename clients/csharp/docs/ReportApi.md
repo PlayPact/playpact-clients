@@ -13,6 +13,7 @@ All URIs are relative to *http://localhost*
 | [**GetVerdict**](ReportApi.md#getverdict) | **GET** /api/Report/verdict/{playPactReportId} | Gets a verdict. |
 | [**GetVerdicts**](ReportApi.md#getverdicts) | **GET** /api/Report/verdict/list/{playPactUserId} | Gets all reports. |
 | [**UpdateMyReport**](ReportApi.md#updatemyreport) | **PUT** /api/Report | Updates a report. |
+| [**UpdateReportStatus**](ReportApi.md#updatereportstatus) | **PUT** /api/Report/status/{playPactReportId} | Updates a report status. |
 
 <a id="createmyreport"></a>
 # **CreateMyReport**
@@ -93,7 +94,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 
@@ -839,7 +840,103 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="updatereportstatus"></a>
+# **UpdateReportStatus**
+> void UpdateReportStatus (Guid playPactReportId, Guid? playPactUserId = null, ReportStatus? reportStatus = null, bool? isSystemUpdate = null)
+
+Updates a report status.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using PlayPact.OpenAPI.Api;
+using PlayPact.OpenAPI.Client;
+using PlayPact.OpenAPI.Model;
+
+namespace Example
+{
+    public class UpdateReportStatusExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://localhost";
+            // Configure API key authorization: Bearer
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ReportApi(config);
+            var playPactReportId = "playPactReportId_example";  // Guid | 
+            var playPactUserId = "playPactUserId_example";  // Guid? |  (optional) 
+            var reportStatus = (ReportStatus) "Draft";  // ReportStatus? |  (optional) 
+            var isSystemUpdate = false;  // bool? |  (optional)  (default to false)
+
+            try
+            {
+                // Updates a report status.
+                apiInstance.UpdateReportStatus(playPactReportId, playPactUserId, reportStatus, isSystemUpdate);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ReportApi.UpdateReportStatus: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UpdateReportStatusWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Updates a report status.
+    apiInstance.UpdateReportStatusWithHttpInfo(playPactReportId, playPactUserId, reportStatus, isSystemUpdate);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ReportApi.UpdateReportStatusWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **playPactReportId** | **Guid** |  |  |
+| **playPactUserId** | **Guid?** |  | [optional]  |
+| **reportStatus** | **ReportStatus?** |  | [optional]  |
+| **isSystemUpdate** | **bool?** |  | [optional] [default to false] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 

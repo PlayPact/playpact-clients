@@ -111,10 +111,9 @@ Class | Method | HTTP request | Description
 *DashboardApi* | [**GetCompletedReports**](docs/DashboardApi.md#getcompletedreports) | **GET** /api/Dashboard/report/completed/count | Gets the number of completed reports.
 *DashboardApi* | [**GetRegisteredServers**](docs/DashboardApi.md#getregisteredservers) | **GET** /api/Dashboard/server/count | Gets the number of registered servers.
 *DashboardApi* | [**GetUserCount**](docs/DashboardApi.md#getusercount) | **GET** /api/Dashboard/user/count | Gets the number of users.
-*ObjectionApi* | [**CreateMyObjection**](docs/ObjectionApi.md#createmyobjection) | **POST** /api/Objection | Creates a objection.
-*ObjectionApi* | [**GetMyObjection**](docs/ObjectionApi.md#getmyobjection) | **GET** /api/Objection | Gets the objection for a report with more details.  Only works for the user who created the report.
-*ObjectionApi* | [**GetObjection**](docs/ObjectionApi.md#getobjection) | **GET** /api/Objection/{playPactReportId} | Gets the objection for a report.
-*ObjectionApi* | [**UpdateMyObjection**](docs/ObjectionApi.md#updatemyobjection) | **PUT** /api/Objection | TODO: Updates a objection.
+*ObjectionApi* | [**GetMyObjection**](docs/ObjectionApi.md#getmyobjection) | **GET** /api/Objection/my/objection/{playPactReportId}/user/{playPactUserId} | Gets the objection for a report with more details.  Only works for the user who created the report.
+*ObjectionApi* | [**GetObjection**](docs/ObjectionApi.md#getobjection) | **GET** /api/Objection/report/{playPactReportId}/user/{playPactUserId} | Gets the objection for a report.
+*ObjectionApi* | [**UpdateMyObjection**](docs/ObjectionApi.md#updatemyobjection) | **PUT** /api/Objection/my/objection/{playPactReportId}/user/{playPactUserId} | Updates a objection.
 *PactPointApi* | [**GetPactPointTransaction**](docs/PactPointApi.md#getpactpointtransaction) | **GET** /api/PactPoint/{playPactTransactionId} | TODO: Gets a pact point transaction.
 *PactPointApi* | [**GetPactPointTransactions**](docs/PactPointApi.md#getpactpointtransactions) | **GET** /api/PactPoint | TODO: Gets all pact point transactions.
 *ReportApi* | [**CreateMyReport**](docs/ReportApi.md#createmyreport) | **POST** /api/Report | Creates a report.
@@ -126,6 +125,7 @@ Class | Method | HTTP request | Description
 *ReportApi* | [**GetVerdict**](docs/ReportApi.md#getverdict) | **GET** /api/Report/verdict/{playPactReportId} | Gets a verdict.
 *ReportApi* | [**GetVerdicts**](docs/ReportApi.md#getverdicts) | **GET** /api/Report/verdict/list/{playPactUserId} | Gets all reports.
 *ReportApi* | [**UpdateMyReport**](docs/ReportApi.md#updatemyreport) | **PUT** /api/Report | Updates a report.
+*ReportApi* | [**UpdateReportStatus**](docs/ReportApi.md#updatereportstatus) | **PUT** /api/Report/status/{playPactReportId} | Updates a report status.
 *ReviewApi* | [**CreateReview**](docs/ReviewApi.md#createreview) | **POST** /api/Review | TODO: Creates a report.
 *ReviewApi* | [**DeleteMyReview**](docs/ReviewApi.md#deletemyreview) | **DELETE** /api/Review | Deletes a report.
 *ReviewApi* | [**GetMyReview**](docs/ReviewApi.md#getmyreview) | **GET** /api/Review/my/{playPactReportId} | Gets all reviews, including the user's review that will hold more information.
@@ -167,10 +167,10 @@ Class | Method | HTTP request | Description
  - [Model.CreateEvidenceDto](docs/CreateEvidenceDto.md)
  - [Model.CreateMyReportDto](docs/CreateMyReportDto.md)
  - [Model.CreateMyServerDto](docs/CreateMyServerDto.md)
- - [Model.CreateObjectionDto](docs/CreateObjectionDto.md)
  - [Model.CreateReviewDto](docs/CreateReviewDto.md)
  - [Model.CreateRuleDto](docs/CreateRuleDto.md)
  - [Model.EvidenceDto](docs/EvidenceDto.md)
+ - [Model.EvidenceListDto](docs/EvidenceListDto.md)
  - [Model.FileType](docs/FileType.md)
  - [Model.MyReportDto](docs/MyReportDto.md)
  - [Model.MyReportListDto](docs/MyReportListDto.md)

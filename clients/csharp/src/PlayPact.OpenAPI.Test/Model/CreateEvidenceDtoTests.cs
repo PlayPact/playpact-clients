@@ -65,15 +65,6 @@ namespace PlayPact.OpenAPI.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'PlayPactAttachedToId'
-        /// </summary>
-        [Fact]
-        public void PlayPactAttachedToIdTest()
-        {
-            // TODO unit test for the property 'PlayPactAttachedToId'
-        }
-
-        /// <summary>
         /// Test the property 'Description'
         /// </summary>
         [Fact]
@@ -92,12 +83,12 @@ namespace PlayPact.OpenAPI.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'BlobStorageUri'
+        /// Test the property 'Uri'
         /// </summary>
         [Fact]
-        public void BlobStorageUriTest()
+        public void UriTest()
         {
-            // TODO unit test for the property 'BlobStorageUri'
+            // TODO unit test for the property 'Uri'
         }
     }
 }

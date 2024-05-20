@@ -28,34 +28,14 @@ namespace PlayPact.OpenAPI.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Creates a objection.
-        /// </summary>
-        /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createObjectionDto"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        void CreateMyObjection(CreateObjectionDto createObjectionDto = default(CreateObjectionDto), int operationIndex = 0);
-
-        /// <summary>
-        /// Creates a objection.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createObjectionDto"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CreateMyObjectionWithHttpInfo(CreateObjectionDto createObjectionDto = default(CreateObjectionDto), int operationIndex = 0);
-        /// <summary>
         /// Gets the objection for a report with more details.  Only works for the user who created the report.
         /// </summary>
         /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playPactReportId">Play pact id of the report to get the objection for. (optional)</param>
-        /// <param name="playPactUserId">Play pact id of the requesting user. (optional)</param>
+        /// <param name="playPactReportId">Play pact id of the report to get the objection for.</param>
+        /// <param name="playPactUserId">Play pact id of the requesting user.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ObjectionDto</returns>
-        ObjectionDto GetMyObjection(Guid? playPactReportId = default(Guid?), Guid? playPactUserId = default(Guid?), int operationIndex = 0);
+        ObjectionDto GetMyObjection(Guid playPactReportId, Guid playPactUserId, int operationIndex = 0);
 
         /// <summary>
         /// Gets the objection for a report with more details.  Only works for the user who created the report.
@@ -64,20 +44,20 @@ namespace PlayPact.OpenAPI.Api
         /// 
         /// </remarks>
         /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playPactReportId">Play pact id of the report to get the objection for. (optional)</param>
-        /// <param name="playPactUserId">Play pact id of the requesting user. (optional)</param>
+        /// <param name="playPactReportId">Play pact id of the report to get the objection for.</param>
+        /// <param name="playPactUserId">Play pact id of the requesting user.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ObjectionDto</returns>
-        ApiResponse<ObjectionDto> GetMyObjectionWithHttpInfo(Guid? playPactReportId = default(Guid?), Guid? playPactUserId = default(Guid?), int operationIndex = 0);
+        ApiResponse<ObjectionDto> GetMyObjectionWithHttpInfo(Guid playPactReportId, Guid playPactUserId, int operationIndex = 0);
         /// <summary>
         /// Gets the objection for a report.
         /// </summary>
         /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="playPactReportId">Play pact id of the report to get the objection for.</param>
-        /// <param name="playPactUserId">Play pact id of the requesting user. (optional)</param>
+        /// <param name="playPactUserId">Play pact id of the requesting user.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ObjectionDto</returns>
-        ObjectionDto GetObjection(Guid playPactReportId, Guid? playPactUserId = default(Guid?), int operationIndex = 0);
+        ObjectionDto GetObjection(Guid playPactReportId, Guid playPactUserId, int operationIndex = 0);
 
         /// <summary>
         /// Gets the objection for a report.
@@ -87,32 +67,34 @@ namespace PlayPact.OpenAPI.Api
         /// </remarks>
         /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="playPactReportId">Play pact id of the report to get the objection for.</param>
-        /// <param name="playPactUserId">Play pact id of the requesting user. (optional)</param>
+        /// <param name="playPactUserId">Play pact id of the requesting user.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ObjectionDto</returns>
-        ApiResponse<ObjectionDto> GetObjectionWithHttpInfo(Guid playPactReportId, Guid? playPactUserId = default(Guid?), int operationIndex = 0);
+        ApiResponse<ObjectionDto> GetObjectionWithHttpInfo(Guid playPactReportId, Guid playPactUserId, int operationIndex = 0);
         /// <summary>
-        /// TODO: Updates a objection.
+        /// Updates a objection.
         /// </summary>
         /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playPactObjectionId"> (optional)</param>
+        /// <param name="playPactReportId"></param>
+        /// <param name="playPactUserId"></param>
         /// <param name="objectionDto"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void UpdateMyObjection(Guid? playPactObjectionId = default(Guid?), ObjectionDto objectionDto = default(ObjectionDto), int operationIndex = 0);
+        void UpdateMyObjection(Guid playPactReportId, Guid playPactUserId, ObjectionDto objectionDto = default(ObjectionDto), int operationIndex = 0);
 
         /// <summary>
-        /// TODO: Updates a objection.
+        /// Updates a objection.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playPactObjectionId"> (optional)</param>
+        /// <param name="playPactReportId"></param>
+        /// <param name="playPactUserId"></param>
         /// <param name="objectionDto"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateMyObjectionWithHttpInfo(Guid? playPactObjectionId = default(Guid?), ObjectionDto objectionDto = default(ObjectionDto), int operationIndex = 0);
+        ApiResponse<Object> UpdateMyObjectionWithHttpInfo(Guid playPactReportId, Guid playPactUserId, ObjectionDto objectionDto = default(ObjectionDto), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -123,43 +105,18 @@ namespace PlayPact.OpenAPI.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Creates a objection.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createObjectionDto"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CreateMyObjectionAsync(CreateObjectionDto createObjectionDto = default(CreateObjectionDto), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Creates a objection.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createObjectionDto"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CreateMyObjectionWithHttpInfoAsync(CreateObjectionDto createObjectionDto = default(CreateObjectionDto), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
         /// Gets the objection for a report with more details.  Only works for the user who created the report.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playPactReportId">Play pact id of the report to get the objection for. (optional)</param>
-        /// <param name="playPactUserId">Play pact id of the requesting user. (optional)</param>
+        /// <param name="playPactReportId">Play pact id of the report to get the objection for.</param>
+        /// <param name="playPactUserId">Play pact id of the requesting user.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectionDto</returns>
-        System.Threading.Tasks.Task<ObjectionDto> GetMyObjectionAsync(Guid? playPactReportId = default(Guid?), Guid? playPactUserId = default(Guid?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ObjectionDto> GetMyObjectionAsync(Guid playPactReportId, Guid playPactUserId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Gets the objection for a report with more details.  Only works for the user who created the report.
@@ -168,12 +125,12 @@ namespace PlayPact.OpenAPI.Api
         /// 
         /// </remarks>
         /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playPactReportId">Play pact id of the report to get the objection for. (optional)</param>
-        /// <param name="playPactUserId">Play pact id of the requesting user. (optional)</param>
+        /// <param name="playPactReportId">Play pact id of the report to get the objection for.</param>
+        /// <param name="playPactUserId">Play pact id of the requesting user.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectionDto)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ObjectionDto>> GetMyObjectionWithHttpInfoAsync(Guid? playPactReportId = default(Guid?), Guid? playPactUserId = default(Guid?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ObjectionDto>> GetMyObjectionWithHttpInfoAsync(Guid playPactReportId, Guid playPactUserId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Gets the objection for a report.
         /// </summary>
@@ -182,11 +139,11 @@ namespace PlayPact.OpenAPI.Api
         /// </remarks>
         /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="playPactReportId">Play pact id of the report to get the objection for.</param>
-        /// <param name="playPactUserId">Play pact id of the requesting user. (optional)</param>
+        /// <param name="playPactUserId">Play pact id of the requesting user.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectionDto</returns>
-        System.Threading.Tasks.Task<ObjectionDto> GetObjectionAsync(Guid playPactReportId, Guid? playPactUserId = default(Guid?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ObjectionDto> GetObjectionAsync(Guid playPactReportId, Guid playPactUserId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Gets the objection for a report.
@@ -196,38 +153,40 @@ namespace PlayPact.OpenAPI.Api
         /// </remarks>
         /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="playPactReportId">Play pact id of the report to get the objection for.</param>
-        /// <param name="playPactUserId">Play pact id of the requesting user. (optional)</param>
+        /// <param name="playPactUserId">Play pact id of the requesting user.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectionDto)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ObjectionDto>> GetObjectionWithHttpInfoAsync(Guid playPactReportId, Guid? playPactUserId = default(Guid?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ObjectionDto>> GetObjectionWithHttpInfoAsync(Guid playPactReportId, Guid playPactUserId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// TODO: Updates a objection.
+        /// Updates a objection.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playPactObjectionId"> (optional)</param>
+        /// <param name="playPactReportId"></param>
+        /// <param name="playPactUserId"></param>
         /// <param name="objectionDto"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateMyObjectionAsync(Guid? playPactObjectionId = default(Guid?), ObjectionDto objectionDto = default(ObjectionDto), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task UpdateMyObjectionAsync(Guid playPactReportId, Guid playPactUserId, ObjectionDto objectionDto = default(ObjectionDto), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// TODO: Updates a objection.
+        /// Updates a objection.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playPactObjectionId"> (optional)</param>
+        /// <param name="playPactReportId"></param>
+        /// <param name="playPactUserId"></param>
         /// <param name="objectionDto"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateMyObjectionWithHttpInfoAsync(Guid? playPactObjectionId = default(Guid?), ObjectionDto objectionDto = default(ObjectionDto), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateMyObjectionWithHttpInfoAsync(Guid playPactReportId, Guid playPactUserId, ObjectionDto objectionDto = default(ObjectionDto), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -349,158 +308,14 @@ namespace PlayPact.OpenAPI.Api
         }
 
         /// <summary>
-        /// Creates a objection. 
-        /// </summary>
-        /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createObjectionDto"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        public void CreateMyObjection(CreateObjectionDto createObjectionDto = default(CreateObjectionDto), int operationIndex = 0)
-        {
-            CreateMyObjectionWithHttpInfo(createObjectionDto);
-        }
-
-        /// <summary>
-        /// Creates a objection. 
-        /// </summary>
-        /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createObjectionDto"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public PlayPact.OpenAPI.Client.ApiResponse<Object> CreateMyObjectionWithHttpInfo(CreateObjectionDto createObjectionDto = default(CreateObjectionDto), int operationIndex = 0)
-        {
-            PlayPact.OpenAPI.Client.RequestOptions localVarRequestOptions = new PlayPact.OpenAPI.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json",
-                "text/json",
-                "application/*+json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
-
-            var localVarContentType = PlayPact.OpenAPI.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = PlayPact.OpenAPI.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = createObjectionDto;
-
-            localVarRequestOptions.Operation = "ObjectionApi.CreateMyObjection";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (Bearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/api/Objection", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CreateMyObjection", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Creates a objection. 
-        /// </summary>
-        /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createObjectionDto"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CreateMyObjectionAsync(CreateObjectionDto createObjectionDto = default(CreateObjectionDto), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            await CreateMyObjectionWithHttpInfoAsync(createObjectionDto, operationIndex, cancellationToken).ConfigureAwait(false);
-        }
-
-        /// <summary>
-        /// Creates a objection. 
-        /// </summary>
-        /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createObjectionDto"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<PlayPact.OpenAPI.Client.ApiResponse<Object>> CreateMyObjectionWithHttpInfoAsync(CreateObjectionDto createObjectionDto = default(CreateObjectionDto), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-
-            PlayPact.OpenAPI.Client.RequestOptions localVarRequestOptions = new PlayPact.OpenAPI.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json", 
-                "text/json", 
-                "application/*+json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
-
-            var localVarContentType = PlayPact.OpenAPI.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = PlayPact.OpenAPI.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = createObjectionDto;
-
-            localVarRequestOptions.Operation = "ObjectionApi.CreateMyObjection";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (Bearer) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/api/Objection", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CreateMyObjection", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
         /// Gets the objection for a report with more details.  Only works for the user who created the report. 
         /// </summary>
         /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playPactReportId">Play pact id of the report to get the objection for. (optional)</param>
-        /// <param name="playPactUserId">Play pact id of the requesting user. (optional)</param>
+        /// <param name="playPactReportId">Play pact id of the report to get the objection for.</param>
+        /// <param name="playPactUserId">Play pact id of the requesting user.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ObjectionDto</returns>
-        public ObjectionDto GetMyObjection(Guid? playPactReportId = default(Guid?), Guid? playPactUserId = default(Guid?), int operationIndex = 0)
+        public ObjectionDto GetMyObjection(Guid playPactReportId, Guid playPactUserId, int operationIndex = 0)
         {
             PlayPact.OpenAPI.Client.ApiResponse<ObjectionDto> localVarResponse = GetMyObjectionWithHttpInfo(playPactReportId, playPactUserId);
             return localVarResponse.Data;
@@ -510,11 +325,11 @@ namespace PlayPact.OpenAPI.Api
         /// Gets the objection for a report with more details.  Only works for the user who created the report. 
         /// </summary>
         /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playPactReportId">Play pact id of the report to get the objection for. (optional)</param>
-        /// <param name="playPactUserId">Play pact id of the requesting user. (optional)</param>
+        /// <param name="playPactReportId">Play pact id of the report to get the objection for.</param>
+        /// <param name="playPactUserId">Play pact id of the requesting user.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ObjectionDto</returns>
-        public PlayPact.OpenAPI.Client.ApiResponse<ObjectionDto> GetMyObjectionWithHttpInfo(Guid? playPactReportId = default(Guid?), Guid? playPactUserId = default(Guid?), int operationIndex = 0)
+        public PlayPact.OpenAPI.Client.ApiResponse<ObjectionDto> GetMyObjectionWithHttpInfo(Guid playPactReportId, Guid playPactUserId, int operationIndex = 0)
         {
             PlayPact.OpenAPI.Client.RequestOptions localVarRequestOptions = new PlayPact.OpenAPI.Client.RequestOptions();
 
@@ -540,14 +355,8 @@ namespace PlayPact.OpenAPI.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (playPactReportId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(PlayPact.OpenAPI.Client.ClientUtils.ParameterToMultiMap("", "playPactReportId", playPactReportId));
-            }
-            if (playPactUserId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(PlayPact.OpenAPI.Client.ClientUtils.ParameterToMultiMap("", "playPactUserId", playPactUserId));
-            }
+            localVarRequestOptions.PathParameters.Add("playPactReportId", PlayPact.OpenAPI.Client.ClientUtils.ParameterToString(playPactReportId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("playPactUserId", PlayPact.OpenAPI.Client.ClientUtils.ParameterToString(playPactUserId)); // path parameter
 
             localVarRequestOptions.Operation = "ObjectionApi.GetMyObjection";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -559,7 +368,7 @@ namespace PlayPact.OpenAPI.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<ObjectionDto>("/api/Objection", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ObjectionDto>("/api/Objection/my/objection/{playPactReportId}/user/{playPactUserId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetMyObjection", localVarResponse);
@@ -576,12 +385,12 @@ namespace PlayPact.OpenAPI.Api
         /// Gets the objection for a report with more details.  Only works for the user who created the report. 
         /// </summary>
         /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playPactReportId">Play pact id of the report to get the objection for. (optional)</param>
-        /// <param name="playPactUserId">Play pact id of the requesting user. (optional)</param>
+        /// <param name="playPactReportId">Play pact id of the report to get the objection for.</param>
+        /// <param name="playPactUserId">Play pact id of the requesting user.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectionDto</returns>
-        public async System.Threading.Tasks.Task<ObjectionDto> GetMyObjectionAsync(Guid? playPactReportId = default(Guid?), Guid? playPactUserId = default(Guid?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ObjectionDto> GetMyObjectionAsync(Guid playPactReportId, Guid playPactUserId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             PlayPact.OpenAPI.Client.ApiResponse<ObjectionDto> localVarResponse = await GetMyObjectionWithHttpInfoAsync(playPactReportId, playPactUserId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -591,12 +400,12 @@ namespace PlayPact.OpenAPI.Api
         /// Gets the objection for a report with more details.  Only works for the user who created the report. 
         /// </summary>
         /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playPactReportId">Play pact id of the report to get the objection for. (optional)</param>
-        /// <param name="playPactUserId">Play pact id of the requesting user. (optional)</param>
+        /// <param name="playPactReportId">Play pact id of the report to get the objection for.</param>
+        /// <param name="playPactUserId">Play pact id of the requesting user.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectionDto)</returns>
-        public async System.Threading.Tasks.Task<PlayPact.OpenAPI.Client.ApiResponse<ObjectionDto>> GetMyObjectionWithHttpInfoAsync(Guid? playPactReportId = default(Guid?), Guid? playPactUserId = default(Guid?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PlayPact.OpenAPI.Client.ApiResponse<ObjectionDto>> GetMyObjectionWithHttpInfoAsync(Guid playPactReportId, Guid playPactUserId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             PlayPact.OpenAPI.Client.RequestOptions localVarRequestOptions = new PlayPact.OpenAPI.Client.RequestOptions();
@@ -623,14 +432,8 @@ namespace PlayPact.OpenAPI.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (playPactReportId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(PlayPact.OpenAPI.Client.ClientUtils.ParameterToMultiMap("", "playPactReportId", playPactReportId));
-            }
-            if (playPactUserId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(PlayPact.OpenAPI.Client.ClientUtils.ParameterToMultiMap("", "playPactUserId", playPactUserId));
-            }
+            localVarRequestOptions.PathParameters.Add("playPactReportId", PlayPact.OpenAPI.Client.ClientUtils.ParameterToString(playPactReportId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("playPactUserId", PlayPact.OpenAPI.Client.ClientUtils.ParameterToString(playPactUserId)); // path parameter
 
             localVarRequestOptions.Operation = "ObjectionApi.GetMyObjection";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -642,7 +445,7 @@ namespace PlayPact.OpenAPI.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ObjectionDto>("/api/Objection", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ObjectionDto>("/api/Objection/my/objection/{playPactReportId}/user/{playPactUserId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -661,10 +464,10 @@ namespace PlayPact.OpenAPI.Api
         /// </summary>
         /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="playPactReportId">Play pact id of the report to get the objection for.</param>
-        /// <param name="playPactUserId">Play pact id of the requesting user. (optional)</param>
+        /// <param name="playPactUserId">Play pact id of the requesting user.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ObjectionDto</returns>
-        public ObjectionDto GetObjection(Guid playPactReportId, Guid? playPactUserId = default(Guid?), int operationIndex = 0)
+        public ObjectionDto GetObjection(Guid playPactReportId, Guid playPactUserId, int operationIndex = 0)
         {
             PlayPact.OpenAPI.Client.ApiResponse<ObjectionDto> localVarResponse = GetObjectionWithHttpInfo(playPactReportId, playPactUserId);
             return localVarResponse.Data;
@@ -675,10 +478,10 @@ namespace PlayPact.OpenAPI.Api
         /// </summary>
         /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="playPactReportId">Play pact id of the report to get the objection for.</param>
-        /// <param name="playPactUserId">Play pact id of the requesting user. (optional)</param>
+        /// <param name="playPactUserId">Play pact id of the requesting user.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ObjectionDto</returns>
-        public PlayPact.OpenAPI.Client.ApiResponse<ObjectionDto> GetObjectionWithHttpInfo(Guid playPactReportId, Guid? playPactUserId = default(Guid?), int operationIndex = 0)
+        public PlayPact.OpenAPI.Client.ApiResponse<ObjectionDto> GetObjectionWithHttpInfo(Guid playPactReportId, Guid playPactUserId, int operationIndex = 0)
         {
             PlayPact.OpenAPI.Client.RequestOptions localVarRequestOptions = new PlayPact.OpenAPI.Client.RequestOptions();
 
@@ -705,10 +508,7 @@ namespace PlayPact.OpenAPI.Api
             }
 
             localVarRequestOptions.PathParameters.Add("playPactReportId", PlayPact.OpenAPI.Client.ClientUtils.ParameterToString(playPactReportId)); // path parameter
-            if (playPactUserId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(PlayPact.OpenAPI.Client.ClientUtils.ParameterToMultiMap("", "playPactUserId", playPactUserId));
-            }
+            localVarRequestOptions.PathParameters.Add("playPactUserId", PlayPact.OpenAPI.Client.ClientUtils.ParameterToString(playPactUserId)); // path parameter
 
             localVarRequestOptions.Operation = "ObjectionApi.GetObjection";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -720,7 +520,7 @@ namespace PlayPact.OpenAPI.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<ObjectionDto>("/api/Objection/{playPactReportId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ObjectionDto>("/api/Objection/report/{playPactReportId}/user/{playPactUserId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetObjection", localVarResponse);
@@ -738,11 +538,11 @@ namespace PlayPact.OpenAPI.Api
         /// </summary>
         /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="playPactReportId">Play pact id of the report to get the objection for.</param>
-        /// <param name="playPactUserId">Play pact id of the requesting user. (optional)</param>
+        /// <param name="playPactUserId">Play pact id of the requesting user.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectionDto</returns>
-        public async System.Threading.Tasks.Task<ObjectionDto> GetObjectionAsync(Guid playPactReportId, Guid? playPactUserId = default(Guid?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ObjectionDto> GetObjectionAsync(Guid playPactReportId, Guid playPactUserId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             PlayPact.OpenAPI.Client.ApiResponse<ObjectionDto> localVarResponse = await GetObjectionWithHttpInfoAsync(playPactReportId, playPactUserId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -753,11 +553,11 @@ namespace PlayPact.OpenAPI.Api
         /// </summary>
         /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="playPactReportId">Play pact id of the report to get the objection for.</param>
-        /// <param name="playPactUserId">Play pact id of the requesting user. (optional)</param>
+        /// <param name="playPactUserId">Play pact id of the requesting user.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectionDto)</returns>
-        public async System.Threading.Tasks.Task<PlayPact.OpenAPI.Client.ApiResponse<ObjectionDto>> GetObjectionWithHttpInfoAsync(Guid playPactReportId, Guid? playPactUserId = default(Guid?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PlayPact.OpenAPI.Client.ApiResponse<ObjectionDto>> GetObjectionWithHttpInfoAsync(Guid playPactReportId, Guid playPactUserId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             PlayPact.OpenAPI.Client.RequestOptions localVarRequestOptions = new PlayPact.OpenAPI.Client.RequestOptions();
@@ -785,10 +585,7 @@ namespace PlayPact.OpenAPI.Api
             }
 
             localVarRequestOptions.PathParameters.Add("playPactReportId", PlayPact.OpenAPI.Client.ClientUtils.ParameterToString(playPactReportId)); // path parameter
-            if (playPactUserId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(PlayPact.OpenAPI.Client.ClientUtils.ParameterToMultiMap("", "playPactUserId", playPactUserId));
-            }
+            localVarRequestOptions.PathParameters.Add("playPactUserId", PlayPact.OpenAPI.Client.ClientUtils.ParameterToString(playPactUserId)); // path parameter
 
             localVarRequestOptions.Operation = "ObjectionApi.GetObjection";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -800,7 +597,7 @@ namespace PlayPact.OpenAPI.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ObjectionDto>("/api/Objection/{playPactReportId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ObjectionDto>("/api/Objection/report/{playPactReportId}/user/{playPactUserId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -815,31 +612,34 @@ namespace PlayPact.OpenAPI.Api
         }
 
         /// <summary>
-        /// TODO: Updates a objection. 
+        /// Updates a objection. 
         /// </summary>
         /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playPactObjectionId"> (optional)</param>
+        /// <param name="playPactReportId"></param>
+        /// <param name="playPactUserId"></param>
         /// <param name="objectionDto"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void UpdateMyObjection(Guid? playPactObjectionId = default(Guid?), ObjectionDto objectionDto = default(ObjectionDto), int operationIndex = 0)
+        public void UpdateMyObjection(Guid playPactReportId, Guid playPactUserId, ObjectionDto objectionDto = default(ObjectionDto), int operationIndex = 0)
         {
-            UpdateMyObjectionWithHttpInfo(playPactObjectionId, objectionDto);
+            UpdateMyObjectionWithHttpInfo(playPactReportId, playPactUserId, objectionDto);
         }
 
         /// <summary>
-        /// TODO: Updates a objection. 
+        /// Updates a objection. 
         /// </summary>
         /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playPactObjectionId"> (optional)</param>
+        /// <param name="playPactReportId"></param>
+        /// <param name="playPactUserId"></param>
         /// <param name="objectionDto"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public PlayPact.OpenAPI.Client.ApiResponse<Object> UpdateMyObjectionWithHttpInfo(Guid? playPactObjectionId = default(Guid?), ObjectionDto objectionDto = default(ObjectionDto), int operationIndex = 0)
+        public PlayPact.OpenAPI.Client.ApiResponse<Object> UpdateMyObjectionWithHttpInfo(Guid playPactReportId, Guid playPactUserId, ObjectionDto objectionDto = default(ObjectionDto), int operationIndex = 0)
         {
             PlayPact.OpenAPI.Client.RequestOptions localVarRequestOptions = new PlayPact.OpenAPI.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json-patch+json",
                 "application/json",
                 "text/json",
                 "application/*+json"
@@ -861,10 +661,8 @@ namespace PlayPact.OpenAPI.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (playPactObjectionId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(PlayPact.OpenAPI.Client.ClientUtils.ParameterToMultiMap("", "playPactObjectionId", playPactObjectionId));
-            }
+            localVarRequestOptions.PathParameters.Add("playPactReportId", PlayPact.OpenAPI.Client.ClientUtils.ParameterToString(playPactReportId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("playPactUserId", PlayPact.OpenAPI.Client.ClientUtils.ParameterToString(playPactUserId)); // path parameter
             localVarRequestOptions.Data = objectionDto;
 
             localVarRequestOptions.Operation = "ObjectionApi.UpdateMyObjection";
@@ -877,7 +675,7 @@ namespace PlayPact.OpenAPI.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Object>("/api/Objection", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<Object>("/api/Objection/my/objection/{playPactReportId}/user/{playPactUserId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateMyObjection", localVarResponse);
@@ -891,34 +689,37 @@ namespace PlayPact.OpenAPI.Api
         }
 
         /// <summary>
-        /// TODO: Updates a objection. 
+        /// Updates a objection. 
         /// </summary>
         /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playPactObjectionId"> (optional)</param>
+        /// <param name="playPactReportId"></param>
+        /// <param name="playPactUserId"></param>
         /// <param name="objectionDto"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateMyObjectionAsync(Guid? playPactObjectionId = default(Guid?), ObjectionDto objectionDto = default(ObjectionDto), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UpdateMyObjectionAsync(Guid playPactReportId, Guid playPactUserId, ObjectionDto objectionDto = default(ObjectionDto), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await UpdateMyObjectionWithHttpInfoAsync(playPactObjectionId, objectionDto, operationIndex, cancellationToken).ConfigureAwait(false);
+            await UpdateMyObjectionWithHttpInfoAsync(playPactReportId, playPactUserId, objectionDto, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// TODO: Updates a objection. 
+        /// Updates a objection. 
         /// </summary>
         /// <exception cref="PlayPact.OpenAPI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playPactObjectionId"> (optional)</param>
+        /// <param name="playPactReportId"></param>
+        /// <param name="playPactUserId"></param>
         /// <param name="objectionDto"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<PlayPact.OpenAPI.Client.ApiResponse<Object>> UpdateMyObjectionWithHttpInfoAsync(Guid? playPactObjectionId = default(Guid?), ObjectionDto objectionDto = default(ObjectionDto), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PlayPact.OpenAPI.Client.ApiResponse<Object>> UpdateMyObjectionWithHttpInfoAsync(Guid playPactReportId, Guid playPactUserId, ObjectionDto objectionDto = default(ObjectionDto), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             PlayPact.OpenAPI.Client.RequestOptions localVarRequestOptions = new PlayPact.OpenAPI.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
                 "application/json", 
                 "text/json", 
                 "application/*+json"
@@ -940,10 +741,8 @@ namespace PlayPact.OpenAPI.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (playPactObjectionId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(PlayPact.OpenAPI.Client.ClientUtils.ParameterToMultiMap("", "playPactObjectionId", playPactObjectionId));
-            }
+            localVarRequestOptions.PathParameters.Add("playPactReportId", PlayPact.OpenAPI.Client.ClientUtils.ParameterToString(playPactReportId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("playPactUserId", PlayPact.OpenAPI.Client.ClientUtils.ParameterToString(playPactUserId)); // path parameter
             localVarRequestOptions.Data = objectionDto;
 
             localVarRequestOptions.Operation = "ObjectionApi.UpdateMyObjection";
@@ -956,7 +755,7 @@ namespace PlayPact.OpenAPI.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/api/Objection", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/api/Objection/my/objection/{playPactReportId}/user/{playPactUserId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

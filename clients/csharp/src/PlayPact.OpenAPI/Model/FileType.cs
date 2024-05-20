@@ -90,7 +90,13 @@ namespace PlayPact.OpenAPI.Model
         /// Enum PDF for value: PDF
         /// </summary>
         [EnumMember(Value = "PDF")]
-        PDF = 10
+        PDF = 10,
+
+        /// <summary>
+        /// Enum URI for value: URI
+        /// </summary>
+        [EnumMember(Value = "URI")]
+        URI = 11
     }
 
 }
